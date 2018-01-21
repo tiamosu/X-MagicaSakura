@@ -16,12 +16,18 @@
   ~
   -->
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.bilibili.magicasakura.widgets.TintLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/ic_card_background"
+    android:divider="@drawable/shape_divider"
     android:orientation="vertical"
-    android:padding="@dimen/padding_half">
+    android:padding="@dimen/padding_half"
+    android:showDividers="middle"
+    app:dividerTint="@color/theme_color_primary">
 
     <TextView
         android:id="@+id/progress_setting"
@@ -29,13 +35,8 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/padding_half"
         android:text="Choose Progress Style"
-        android:textColor="@color/text_primary_color" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_margin="@dimen/padding_half"
-        android:background="@color/gray_light" />
+        android:textColor="@color/text_primary_color"
+        tools:ignore="HardcodedText"/>
 
     <TextView
         android:id="@+id/download"
@@ -43,6 +44,6 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/padding_half"
         android:text="Choose Download Files"
-        android:textColor="@color/text_primary_color" />
-
-</LinearLayout>
+        android:textColor="@color/text_primary_color"
+        tools:ignore="HardcodedText"/>
+</com.bilibili.magicasakura.widgets.TintLinearLayout>

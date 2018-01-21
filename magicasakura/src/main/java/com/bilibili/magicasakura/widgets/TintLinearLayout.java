@@ -58,6 +58,8 @@ public class TintLinearLayout extends LinearLayout implements Tintable, AppCompa
         final TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.TintLinearLayout);
         mDividerColorId = ta.getResourceId(R.styleable.TintLinearLayout_dividerTint, 0);
         ta.recycle();
+
+        setDividerTint();
     }
 
     @Override
@@ -108,8 +110,14 @@ public class TintLinearLayout extends LinearLayout implements Tintable, AppCompa
     }
 
     @Override
-    public void setDividerDrawable(Drawable divider) {
-        super.setDividerDrawable(divider);
+    public void tint() {
+        if (mBackgroundHelper != null) {
+            mBackgroundHelper.tint();
+            setDividerTint();
+        }
+    }
+
+    private void setDividerTint() {
         Drawable drawableDivider = null;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
             drawableDivider = getDividerDrawable();
@@ -118,13 +126,6 @@ public class TintLinearLayout extends LinearLayout implements Tintable, AppCompa
             final int color = ThemeUtils.getColorById(getContext(), mDividerColorId);
             final GradientDrawable gradientDrawable = (GradientDrawable) drawableDivider;
             gradientDrawable.setColor(color);
-        }
-    }
-
-    @Override
-    public void tint() {
-        if (mBackgroundHelper != null) {
-            mBackgroundHelper.tint();
         }
     }
 }
