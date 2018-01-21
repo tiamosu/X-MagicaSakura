@@ -33,6 +33,7 @@ import com.bilibili.magicasakura.utils.TintManager;
  * @author xyczero617@gmail.com
  * @time 15/11/15
  */
+@SuppressWarnings("WeakerAccess")
 public class AppCompatImageHelper extends AppCompatBaseHelper<ImageView> {
 
     private TintInfo mImageTintInfo;
@@ -73,7 +74,9 @@ public class AppCompatImageHelper extends AppCompatBaseHelper<ImageView> {
      * External use
      */
     public void setImageDrawable() {
-        if (skipNextApply()) return;
+        if (skipNextApply()) {
+            return;
+        }
 
         resetTintResource(0);
         setSkipNextApply(false);
@@ -106,7 +109,9 @@ public class AppCompatImageHelper extends AppCompatBaseHelper<ImageView> {
      * Internal use
      */
     private void setImageDrawable(Drawable drawable) {
-        if (skipNextApply()) return;
+        if (skipNextApply()) {
+            return;
+        }
 
         mView.setImageDrawable(drawable);
     }

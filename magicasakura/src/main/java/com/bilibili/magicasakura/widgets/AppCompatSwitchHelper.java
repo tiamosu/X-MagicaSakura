@@ -20,6 +20,7 @@ import com.bilibili.magicasakura.utils.TintManager;
  * @since 17/5/23
  */
 
+@SuppressWarnings("WeakerAccess")
 public class AppCompatSwitchHelper {
 
     private int[] sAttrs;
@@ -78,7 +79,9 @@ public class AppCompatSwitchHelper {
      * External use
      */
     public void setDrawable() {
-        if (skipNextApply()) return;
+        if (skipNextApply()) {
+            return;
+        }
 
         resetTintResource(0);
         setSkipNextApply(false);
@@ -136,7 +139,9 @@ public class AppCompatSwitchHelper {
      * Internal use
      */
     private void setDrawable(Drawable drawable) {
-        if (skipNextApply()) return;
+        if (skipNextApply()) {
+            return;
+        }
 
         mDrawableCallback.setDrawable(drawable);
     }

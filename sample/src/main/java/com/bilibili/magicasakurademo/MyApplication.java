@@ -20,6 +20,7 @@ import android.app.Application;
 import android.content.Context;
 import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
+import android.support.v4.content.ContextCompat;
 
 import com.bilibili.magicasakurademo.utils.ThemeHelper;
 import com.bilibili.magicasakura.utils.ThemeUtils;
@@ -39,13 +40,13 @@ public class MyApplication extends Application implements ThemeUtils.switchColor
     @Override
     public int replaceColorById(Context context, @ColorRes int colorId) {
         if (ThemeHelper.isDefaultTheme(context)) {
-            return context.getResources().getColor(colorId);
+            return ContextCompat.getColor(context, colorId);
         }
         String theme = getTheme(context);
         if (theme != null) {
             colorId = getThemeColorId(context, colorId, theme);
         }
-        return context.getResources().getColor(colorId);
+        return ContextCompat.getColor(context, colorId);
     }
 
     @Override
@@ -59,7 +60,7 @@ public class MyApplication extends Application implements ThemeUtils.switchColor
         if (theme != null) {
             colorId = getThemeColor(context, originColor, theme);
         }
-        return colorId != -1 ? getResources().getColor(colorId) : originColor;
+        return colorId != -1 ? ContextCompat.getColor(context, colorId) : originColor;
     }
 
     private String getTheme(Context context) {
@@ -91,6 +92,7 @@ public class MyApplication extends Application implements ThemeUtils.switchColor
                 return context.getResources().getIdentifier(theme + "_dark", "color", getPackageName());
             case R.color.theme_color_primary_trans:
                 return context.getResources().getIdentifier(theme + "_trans", "color", getPackageName());
+            default:
         }
         return colorId;
     }
@@ -105,6 +107,7 @@ public class MyApplication extends Application implements ThemeUtils.switchColor
                 return context.getResources().getIdentifier(theme + "_dark", "color", getPackageName());
             case 0x99f0486c:
                 return context.getResources().getIdentifier(theme + "_trans", "color", getPackageName());
+            default:
         }
         return -1;
     }

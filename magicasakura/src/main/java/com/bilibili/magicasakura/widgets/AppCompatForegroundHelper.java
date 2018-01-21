@@ -35,6 +35,7 @@ import com.bilibili.magicasakura.utils.TintManager;
  * @author xyczero617@gmail.com
  * @time 16/4/7
  */
+@SuppressWarnings("WeakerAccess")
 public class AppCompatForegroundHelper extends AppCompatBaseHelper<View> {
 
     private TintInfo mForegroundTintInfo;
@@ -67,11 +68,11 @@ public class AppCompatForegroundHelper extends AppCompatBaseHelper<View> {
 
     /**
      * External use
-     *
-     * @param foreground
      */
     public void setForegroundDrawableExternal(Drawable foreground) {
-        if (skipNextApply()) return;
+        if (skipNextApply()) {
+            return;
+        }
 
         resetTintResource(0);
         setSkipNextApply(false);
@@ -105,7 +106,9 @@ public class AppCompatForegroundHelper extends AppCompatBaseHelper<View> {
      * Internal use
      */
     private void setForegroundDrawable(Drawable drawable) {
-        if (skipNextApply()) return;
+        if (skipNextApply()) {
+            return;
+        }
 
         setForeground(drawable);
     }

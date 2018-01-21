@@ -34,6 +34,7 @@ import com.bilibili.magicasakura.utils.TintManager;
  * @author xyczero617@gmail.com
  * @time 15/9/26
  */
+@SuppressWarnings("WeakerAccess")
 public class AppCompatCompoundDrawableHelper extends AppCompatBaseHelper<TextView> {
 
     private TintInfo[] mCompoundDrawableTintInfos = new TintInfo[4];
@@ -84,7 +85,9 @@ public class AppCompatCompoundDrawableHelper extends AppCompatBaseHelper<TextVie
      * External use
      */
     public void setCompoundDrawablesWithIntrinsicBounds() {
-        if (skipNextApply()) return;
+        if (skipNextApply()) {
+            return;
+        }
 
         resetTintResource(0, 0, 0, 0);
         setSkipNextApply(false);
@@ -120,7 +123,9 @@ public class AppCompatCompoundDrawableHelper extends AppCompatBaseHelper<TextVie
      * Internal use
      */
     private void setCompoundDrawablesWithIntrinsicBounds(Drawable left, Drawable top, Drawable right, Drawable bottom) {
-        if (skipNextApply()) return;
+        if (skipNextApply()) {
+            return;
+        }
 
         mView.setCompoundDrawablesWithIntrinsicBounds(left, top, right, bottom);
     }

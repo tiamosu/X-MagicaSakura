@@ -12,6 +12,7 @@ import com.bilibili.magicasakura.utils.TintManager;
  * Created by feifan on 2017/4/11.
  * Contacts me:404619986@qq.com
  */
+@SuppressWarnings("deprecation")
 public class TintConstraintLayout extends ConstraintLayout implements Tintable, AppCompatBackgroundHelper.BackgroundExtensible,
         AppCompatForegroundHelper.ForegroundExtensible {
 

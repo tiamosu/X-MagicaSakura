@@ -58,7 +58,7 @@ class LayerDrawableInflateImpl implements DrawableInflateDelegate {
                 continue;
             }
 
-            if (depth > innerDepth || !parser.getName().equals("item")) {
+            if (depth > innerDepth || !"item".equals(parser.getName())) {
                 continue;
             }
 
@@ -76,6 +76,7 @@ class LayerDrawableInflateImpl implements DrawableInflateDelegate {
             // attribute for a drawable, attempt to parse one from the child
             // element.
             if (drawable == null) {
+                //noinspection StatementWithEmptyBody
                 while ((type = parser.next()) == XmlPullParser.TEXT) {
                 }
                 if (type != XmlPullParser.START_TAG) {

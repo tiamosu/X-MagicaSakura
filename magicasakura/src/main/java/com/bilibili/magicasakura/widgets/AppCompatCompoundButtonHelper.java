@@ -35,6 +35,7 @@ import com.bilibili.magicasakura.utils.TintManager;
  * @author xyczero617@gmail.com
  * @time 15/11/23
  */
+@SuppressWarnings("WeakerAccess")
 public class AppCompatCompoundButtonHelper extends AppCompatBaseHelper<CompoundButton> {
 
     private TintInfo mCompoundButtonTintInfo;
@@ -68,7 +69,9 @@ public class AppCompatCompoundButtonHelper extends AppCompatBaseHelper<CompoundB
      * External use
      */
     public void setButtonDrawable() {
-        if (skipNextApply()) return;
+        if (skipNextApply()) {
+            return;
+        }
 
         resetTintResource(0);
         setSkipNextApply(false);
@@ -104,7 +107,9 @@ public class AppCompatCompoundButtonHelper extends AppCompatBaseHelper<CompoundB
      * Internal use
      */
     private void setButtonDrawable(Drawable drawable) {
-        if (skipNextApply()) return;
+        if (skipNextApply()) {
+            return;
+        }
 
         mView.setButtonDrawable(drawable);
     }

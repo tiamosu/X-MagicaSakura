@@ -24,6 +24,7 @@ import android.content.SharedPreferences;
  * @author xyczero
  * @time 16/5/2
  */
+@SuppressWarnings("WeakerAccess")
 public class ThemeHelper {
     private static final String CURRENT_THEME = "theme_current";
 
@@ -43,7 +44,7 @@ public class ThemeHelper {
     public static void setTheme(Context context, int themeId) {
         getSharePreference(context).edit()
                 .putInt(CURRENT_THEME, themeId)
-                .commit();
+                .apply();
     }
 
     public static int getTheme(Context context) {
@@ -72,6 +73,7 @@ public class ThemeHelper {
                 return "THE SAND";
             case CARD_FIREY:
                 return "THE FIREY";
+            default:
         }
         return "THE RETURN";
     }

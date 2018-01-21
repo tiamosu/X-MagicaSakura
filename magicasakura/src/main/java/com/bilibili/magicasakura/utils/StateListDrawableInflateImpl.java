@@ -55,7 +55,7 @@ class StateListDrawableInflateImpl implements DrawableInflateDelegate {
                 continue;
             }
 
-            if (depth > innerDepth || !parser.getName().equals("item")) {
+            if (depth > innerDepth || !"item".equals(parser.getName())) {
                 continue;
             }
 
@@ -67,6 +67,7 @@ class StateListDrawableInflateImpl implements DrawableInflateDelegate {
             // underlying parser, so it needs to happen after obtaining
             // attributes and extracting states.
             if (dr == null) {
+                //noinspection StatementWithEmptyBody
                 while ((type = parser.next()) == XmlPullParser.TEXT) {
                 }
                 if (type != XmlPullParser.START_TAG) {

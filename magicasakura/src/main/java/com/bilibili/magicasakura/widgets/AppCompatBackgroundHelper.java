@@ -35,6 +35,7 @@ import com.bilibili.magicasakura.utils.TintManager;
  * @author xyczero617@gmail.com
  * @time 15/9/26
  */
+@SuppressWarnings("deprecation")
 public class AppCompatBackgroundHelper extends AppCompatBaseHelper<View> {
 
     private TintInfo mBackgroundTintInfo;
@@ -70,11 +71,11 @@ public class AppCompatBackgroundHelper extends AppCompatBaseHelper<View> {
 
     /**
      * External use
-     *
-     * @param background
      */
     public void setBackgroundDrawableExternal(Drawable background) {
-        if (skipNextApply()) return;
+        if (skipNextApply()) {
+            return;
+        }
 
         resetTintResource(0);
         setSkipNextApply(false);
@@ -82,7 +83,9 @@ public class AppCompatBackgroundHelper extends AppCompatBaseHelper<View> {
     }
 
     public void setBackgroundColor(int color) {
-        if (skipNextApply()) return;
+        if (skipNextApply()) {
+            return;
+        }
 
         resetTintResource(0);
         mView.setBackgroundColor(ThemeUtils.getColor(mView.getContext(), color));
@@ -116,7 +119,9 @@ public class AppCompatBackgroundHelper extends AppCompatBaseHelper<View> {
      * Internal use
      */
     private void setBackgroundDrawable(Drawable drawable) {
-        if (skipNextApply()) return;
+        if (skipNextApply()) {
+            return;
+        }
 
         setBackground(drawable);
         recoverPadding(drawable);

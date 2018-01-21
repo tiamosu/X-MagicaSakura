@@ -36,6 +36,7 @@ import com.bilibili.magicasakura.utils.TintManager;
  * @author xyczero617@gmail.com
  * @time 16/2/1
  */
+@SuppressWarnings("deprecation")
 @SuppressLint("AppCompatCustomView")
 public class TintEditText extends EditText implements Tintable, AppCompatBackgroundHelper.BackgroundExtensible,
         AppCompatCompoundDrawableHelper.CompoundDrawableExtensible, AppCompatTextHelper.TextExtensible {

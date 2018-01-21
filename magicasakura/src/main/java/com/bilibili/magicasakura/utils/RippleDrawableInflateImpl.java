@@ -21,6 +21,7 @@ import java.lang.reflect.Method;
  * @time 16/11/6
  */
 
+@SuppressWarnings("WeakerAccess")
 public class RippleDrawableInflateImpl extends LayerDrawableInflateImpl {
     private static Method sAddLayer;
     private static Method sEnsurePadding;
@@ -48,7 +49,7 @@ public class RippleDrawableInflateImpl extends LayerDrawableInflateImpl {
                     continue;
                 }
 
-                if (depth > innerDepth || !parser.getName().equals("item")) {
+                if (depth > innerDepth || !"item".equals(parser.getName())) {
                     continue;
                 }
 
@@ -69,6 +70,7 @@ public class RippleDrawableInflateImpl extends LayerDrawableInflateImpl {
                 // attribute for a drawable, attempt to parse one from the child
                 // element.
                 if (drawable == null) {
+                    //noinspection StatementWithEmptyBody
                     while ((type = parser.next()) == XmlPullParser.TEXT) {
                     }
                     if (type != XmlPullParser.START_TAG) {
@@ -127,6 +129,7 @@ public class RippleDrawableInflateImpl extends LayerDrawableInflateImpl {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             rippleDrawable.addLayer(drawable);
         } else {
+            //noinspection TryWithIdenticalCatches
             try {
                 if (sAddLayer == null) {
                     sAddLayer = Class.forName("android.graphics.drawable.LayerDrawable")

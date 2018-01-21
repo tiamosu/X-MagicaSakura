@@ -23,6 +23,7 @@ import com.bilibili.magicasakura.utils.TintManager;
  * @since 17/5/23
  */
 
+@SuppressWarnings("deprecation")
 public class TintSwitchCompat extends SwitchCompat implements Tintable, AppCompatTextHelper.TextExtensible,
         AppCompatBackgroundHelper.BackgroundExtensible, AppCompatSwitchHelper.SwitchCompatExtensible,
         AppCompatCompoundButtonHelper.CompoundButtonExtensible {
@@ -94,6 +95,7 @@ public class TintSwitchCompat extends SwitchCompat implements Tintable, AppCompa
             Drawable drawable = CompoundButtonCompat.getButtonDrawable(this);
             try {
                 if (ThemeUtils.getWrapperDrawable(drawable) instanceof AnimatedStateListDrawable) {
+                    assert drawable != null;
                     drawable.jumpToCurrentState();
                 }
             } catch (NoClassDefFoundError error) {
@@ -258,7 +260,6 @@ public class TintSwitchCompat extends SwitchCompat implements Tintable, AppCompa
         }
     }
 
-    @Nullable
     @Override
     public void setButtonDrawable(Drawable drawable) {
         super.setButtonDrawable(drawable);

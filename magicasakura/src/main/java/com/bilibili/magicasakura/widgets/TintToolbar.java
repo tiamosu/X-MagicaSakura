@@ -29,6 +29,7 @@ import com.bilibili.magicasakura.utils.TintManager;
  * @author xyczero617@gmail.com
  * @time 15/10/19
  */
+@SuppressWarnings("deprecation")
 public class TintToolbar extends Toolbar implements Tintable, AppCompatBackgroundHelper.BackgroundExtensible {
     private AppCompatBackgroundHelper mBackgroundHelper;
 

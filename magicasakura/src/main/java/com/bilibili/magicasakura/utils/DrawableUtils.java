@@ -44,10 +44,13 @@ import java.io.IOException;
  * @author xyczero617@gmail.com
  * @time 16/2/22
  */
+@SuppressWarnings("WeakerAccess")
 public class DrawableUtils {
 
     static Drawable createDrawable(Context context, int resId) {
-        if (resId <= 0) return null;
+        if (resId <= 0) {
+            return null;
+        }
 
         final TypedValue typedValue = new TypedValue();
         final Resources res = context.getResources();
@@ -58,12 +61,14 @@ public class DrawableUtils {
                 && typedValue.type <= TypedValue.TYPE_LAST_COLOR_INT) {
             dr = new ColorDrawable(ThemeUtils.replaceColorById(context, resId));
         } else {
+            //noinspection TryWithIdenticalCatches
             try {
                 if (typedValue.string != null && typedValue.string.toString().endsWith("xml")) {
                     final XmlResourceParser rp = res.getXml(resId);
                     final AttributeSet attrs = Xml.asAttributeSet(rp);
                     int type;
 
+                    //noinspection StatementWithEmptyBody
                     while ((type = rp.next()) != XmlPullParser.START_TAG &&
                             type != XmlPullParser.END_DOCUMENT) {
                         // Empty loop
@@ -167,7 +172,9 @@ public class DrawableUtils {
 
     static ColorFilter getAttrColorFilter(Context context, AttributeSet attrs, int tintAttr, int tintModeAttr) {
         final int color = getAttrColor(context, attrs, tintAttr, Color.TRANSPARENT);
-        if (color == Color.TRANSPARENT) return null;
+        if (color == Color.TRANSPARENT) {
+            return null;
+        }
         return new PorterDuffColorFilter(color, getTintMode(context, attrs, tintModeAttr));
     }
 

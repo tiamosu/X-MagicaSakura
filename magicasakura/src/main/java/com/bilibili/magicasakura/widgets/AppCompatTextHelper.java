@@ -16,11 +16,11 @@
 
 package com.bilibili.magicasakura.widgets;
 
+import android.annotation.SuppressLint;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.support.annotation.ColorRes;
 import android.util.AttributeSet;
-import android.view.View;
 import android.widget.TextView;
 
 import com.bilibili.magicasakura.R;
@@ -31,6 +31,7 @@ import com.bilibili.magicasakura.utils.TintManager;
  * @author xyczero617@gmail.com
  * @time 15/9/26
  */
+@SuppressWarnings("WeakerAccess")
 public class AppCompatTextHelper extends AppCompatBaseHelper<TextView> {
 
     //If writing like this:
@@ -50,7 +51,7 @@ public class AppCompatTextHelper extends AppCompatBaseHelper<TextView> {
     @SuppressWarnings("ResourceType")
     @Override
     void loadFromAttribute(AttributeSet attrs, int defStyleAttr) {
-        TypedArray array = mView.getContext().obtainStyledAttributes(attrs, R.styleable.TintTextHelper , defStyleAttr, 0);
+        TypedArray array = mView.getContext().obtainStyledAttributes(attrs, R.styleable.TintTextHelper, defStyleAttr, 0);
 
         int textColorId = array.getResourceId(R.styleable.TintTextHelper_android_textColor, 0);
         if (textColorId == 0) {
@@ -70,7 +71,9 @@ public class AppCompatTextHelper extends AppCompatBaseHelper<TextView> {
      * External use
      */
     public void setTextColor() {
-        if (skipNextApply()) return;
+        if (skipNextApply()) {
+            return;
+        }
 
         resetTextColorTintResource(0);
         setSkipNextApply(false);
@@ -81,7 +84,9 @@ public class AppCompatTextHelper extends AppCompatBaseHelper<TextView> {
      */
     @Deprecated
     public void setTextLinkColor() {
-        if (skipNextApply()) return;
+        if (skipNextApply()) {
+            return;
+        }
 
         resetTextLinkColorTintResource(0);
         setSkipNextApply(false);
@@ -92,6 +97,7 @@ public class AppCompatTextHelper extends AppCompatBaseHelper<TextView> {
         setTextAppearanceForTextColor(resId, true);
     }
 
+    @SuppressLint("PrivateResource")
     public void setTextAppearanceForTextColor(int resId, boolean isForced) {
         boolean isTextColorForced = isForced || mTextColorId == 0;
         TypedArray appearance = mView.getContext().obtainStyledAttributes(resId, R.styleable.TextAppearance);
@@ -109,7 +115,9 @@ public class AppCompatTextHelper extends AppCompatBaseHelper<TextView> {
      * Internal use
      */
     private void setTextColor(ColorStateList tint) {
-        if (skipNextApply()) return;
+        if (skipNextApply()) {
+            return;
+        }
 
         mView.setTextColor(tint);
     }
@@ -140,7 +148,7 @@ public class AppCompatTextHelper extends AppCompatBaseHelper<TextView> {
                 mTextColorTintInfo = new TintInfo();
             }
             mTextColorTintInfo.mHasTintList = true;
-            mTextColorTintInfo.mTintList =  mTintManager.getColorStateList(resId);
+            mTextColorTintInfo.mTintList = mTintManager.getColorStateList(resId);
         }
         applySupportTextColorTint();
     }

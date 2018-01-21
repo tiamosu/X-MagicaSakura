@@ -26,7 +26,6 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
-import android.support.annotation.Nullable;
 import android.support.v4.widget.CompoundButtonCompat;
 import android.util.AttributeSet;
 import android.widget.RadioButton;
@@ -38,6 +37,7 @@ import com.bilibili.magicasakura.utils.TintManager;
  * @author xyczero617@gmail.com
  * @time 16/1/19
  */
+@SuppressWarnings("deprecation")
 @SuppressLint("AppCompatCustomView")
 public class TintRadioButton extends RadioButton implements Tintable, AppCompatBackgroundHelper.BackgroundExtensible
         , AppCompatCompoundButtonHelper.CompoundButtonExtensible, AppCompatTextHelper.TextExtensible {
@@ -77,6 +77,7 @@ public class TintRadioButton extends RadioButton implements Tintable, AppCompatB
             Drawable drawable = CompoundButtonCompat.getButtonDrawable(this);
             try {
                 if (ThemeUtils.getWrapperDrawable(drawable) instanceof AnimatedStateListDrawable) {
+                    assert drawable != null;
                     drawable.jumpToCurrentState();
                 }
             } catch (NoClassDefFoundError error) {
@@ -143,7 +144,6 @@ public class TintRadioButton extends RadioButton implements Tintable, AppCompatB
         }
     }
 
-    @Nullable
     @Override
     public void setButtonDrawable(Drawable drawable) {
         super.setButtonDrawable(drawable);

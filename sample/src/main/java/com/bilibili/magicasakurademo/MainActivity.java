@@ -55,9 +55,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-
+@SuppressWarnings("WeakerAccess")
 public class MainActivity extends AppCompatActivity implements CardPickerDialog.ClickListener {
 
+    @SuppressWarnings("ConstantConditions")
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -176,6 +177,7 @@ public class MainActivity extends AppCompatActivity implements CardPickerDialog.
                 "magicasrkura_prompt_" + random.nextInt(3), "string", getPackageName())) + ThemeHelper.getName(current);
     }
 
+    @SuppressWarnings("WeakerAccess")
     public static class Adapter extends RecyclerView.Adapter<ViewHolder> {
         List<Integer> viewHolderTypes = new ArrayList<>();
         SparseArrayCompat<Integer> titleIndexs = new SparseArrayCompat<>();
@@ -213,6 +215,7 @@ public class MainActivity extends AppCompatActivity implements CardPickerDialog.
         }
     }
 
+    @SuppressWarnings("WeakerAccess")
     public static abstract class ViewHolder extends RecyclerView.ViewHolder {
         public static final int VIEW_HOLDER_HEADER = 0;
         public static final int VIEW_HOLDER_LABEL = VIEW_HOLDER_HEADER + 1;
@@ -239,8 +242,9 @@ public class MainActivity extends AppCompatActivity implements CardPickerDialog.
         }
     }
 
+    @SuppressWarnings("WeakerAccess")
     public static class ViewHolderHeader extends ViewHolder {
-        private static final String[] sTitles = new String[]{"Label", "Login", "Choice"};
+        private static final String[] S_TITLES = new String[]{"Label", "Login", "Choice"};
         TintImageView icon;
         TextView title;
 
@@ -251,7 +255,7 @@ public class MainActivity extends AppCompatActivity implements CardPickerDialog.
         }
 
         public void setTitle(int index) {
-            title.setText(sTitles[index - 1]);
+            title.setText(S_TITLES[index - 1]);
             icon.setImageResource(itemView.getResources().getIdentifier(
                     "ic_looks_" + index, "drawable", itemView.getContext().getPackageName()));
             icon.setImageTintList(R.color.theme_color_primary);

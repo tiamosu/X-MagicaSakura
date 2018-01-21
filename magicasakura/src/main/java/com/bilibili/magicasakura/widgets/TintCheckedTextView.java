@@ -23,6 +23,7 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.DrawableRes;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.util.AttributeSet;
 import android.widget.CheckedTextView;
@@ -37,6 +38,7 @@ import com.bilibili.magicasakura.utils.TintManager;
  * special view for replacing view in preference , not recommend to use it in common
  * layout: select_dialog_singlechoice_xxx
  */
+@SuppressWarnings("ResourceType")
 @SuppressLint("AppCompatCustomView")
 public class TintCheckedTextView extends CheckedTextView implements Tintable {
     private static final int[] ATTRS = {
@@ -59,12 +61,12 @@ public class TintCheckedTextView extends CheckedTextView implements Tintable {
         final int drawLeftTintId = array.getResourceId(1, 0);
         array.recycle();
         if (drawLeftId != 0 && drawLeftTintId != 0) {
-            tintCheckTextView(drawLeftId, drawLeftTintId);
+            tintCheckTextView(context, drawLeftId, drawLeftTintId);
         }
     }
 
-    public void tintCheckTextView(@DrawableRes int resId, int tintId) {
-        Drawable drawable = DrawableCompat.wrap(getResources().getDrawable(resId));
+    public void tintCheckTextView(Context context, @DrawableRes int resId, int tintId) {
+        Drawable drawable = DrawableCompat.wrap(ContextCompat.getDrawable(context, resId));
         DrawableCompat.setTintList(drawable, TintManager.get(getContext()).getColorStateList(tintId));
         DrawableCompat.setTintMode(drawable, PorterDuff.Mode.SRC_IN);
         //android-sdk-23 material layout is deprecate android.R.styleable#CheckedTextView_checkMark

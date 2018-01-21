@@ -26,6 +26,7 @@ import java.util.LinkedList;
  * @time 15/11/21
  */
 
+@SuppressWarnings("WeakerAccess")
 public class TintInfo {
     public ColorStateList mTintList;
     public PorterDuff.Mode mTintMode;
@@ -40,11 +41,14 @@ public class TintInfo {
     }
 
     public TintInfo(LinkedList<int[]> stateList, LinkedList<Integer> colorList) {
-        if (colorList == null || stateList == null) return;
+        if (colorList == null || stateList == null) {
+            return;
+        }
 
         mTintColors = new int[colorList.size()];
-        for (int i = 0; i < colorList.size(); i++)
+        for (int i = 0; i < colorList.size(); i++) {
             mTintColors[i] = colorList.get(i);
+        }
         mTintStates = stateList.toArray(new int[stateList.size()][]);
     }
 
