@@ -209,7 +209,7 @@
     <declare-styleable name="TintLinearLayout">
         <attr name="backgroundTint"/>
         <attr name="backgroundTintMode"/>
-        <attr name="dividerTint"/>
+        <attr name="dividerTint" format="integer|reference"/>
     </declare-styleable>
 
     <declare-styleable name="TintGridLayout">
