@@ -25,6 +25,7 @@ import com.bilibili.magicasakura.utils.TintManager;
  * @author xyczero617@gmail.com
  * @time 15/10/1
  */
+@SuppressWarnings("WeakerAccess")
 public abstract class AppCompatBaseHelper<T extends View> {
     protected T mView;
     protected TintManager mTintManager;

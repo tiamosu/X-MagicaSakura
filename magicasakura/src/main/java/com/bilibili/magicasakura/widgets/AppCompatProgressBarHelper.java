@@ -30,6 +30,7 @@ import com.bilibili.magicasakura.utils.TintManager;
  * @author xyczero617@gmail.com
  * @time 16/2/4
  */
+@SuppressWarnings("WeakerAccess")
 public class AppCompatProgressBarHelper extends AppCompatBaseHelper<TintProgressBar> {
 
     private int mProgressTintResId;
@@ -44,7 +45,7 @@ public class AppCompatProgressBarHelper extends AppCompatBaseHelper<TintProgress
 
     @SuppressWarnings("ResourceType")
     @Override
-    void loadFromAttribute(AttributeSet attrs, int defStyleAttr) {
+    public void loadFromAttribute(AttributeSet attrs, int defStyleAttr) {
         TypedArray array = mView.getContext().obtainStyledAttributes(attrs, R.styleable.TintProgressBarHelper, defStyleAttr, 0);
         if (array.hasValue(R.styleable.TintProgressBarHelper_progressTint)) {
             setSupportProgressTint(mProgressTintResId = array.getResourceId(R.styleable.TintProgressBarHelper_progressTint, 0));

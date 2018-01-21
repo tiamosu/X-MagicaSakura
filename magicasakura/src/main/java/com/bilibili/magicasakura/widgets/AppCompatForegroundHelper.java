@@ -49,7 +49,7 @@ public class AppCompatForegroundHelper extends AppCompatBaseHelper<View> {
 
     @SuppressWarnings("ResourceType")
     @Override
-    void loadFromAttribute(AttributeSet attrs, int defStyleAttr) {
+    public void loadFromAttribute(AttributeSet attrs, int defStyleAttr) {
         TypedArray array = mView.getContext().obtainStyledAttributes(attrs, R.styleable.TintViewForegroundHelper, defStyleAttr, 0);
         if (array.hasValue(R.styleable.TintViewForegroundHelper_foregroundTint)) {
             mForegroundTintResId = array.getResourceId(R.styleable.TintViewForegroundHelper_foregroundTint, 0);
@@ -158,16 +158,17 @@ public class AppCompatForegroundHelper extends AppCompatBaseHelper<View> {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             mView.getForeground();
         } else if (mView instanceof FrameLayout) {
+            //noinspection RedundantCast
             ((FrameLayout) mView).getForeground();
         }
         return null;
     }
 
-
     private void setForeground(Drawable foreground) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             mView.setForeground(foreground);
         } else if (mView instanceof FrameLayout) {
+            //noinspection RedundantCast
             ((FrameLayout) mView).setForeground(foreground);
         }
     }
