@@ -16,15 +16,16 @@
   -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/login_layout"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/ic_card_background"
-    android:descendantFocusability="beforeDescendants"
-    android:focusableInTouchMode="true"
-    android:orientation="vertical"
-    android:padding="@dimen/padding_half">
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:id="@+id/login_layout"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@drawable/ic_card_background"
+              android:descendantFocusability="beforeDescendants"
+              android:focusableInTouchMode="true"
+              android:orientation="vertical"
+              android:padding="@dimen/padding_half">
 
     <com.bilibili.magicasakurademo.widgets.KeyEditText
         android:id="@+id/username"
@@ -39,7 +40,8 @@
         android:textCursorDrawable="@drawable/edittext_cursor"
         android:textSize="13sp"
         app:backgroundTint="@color/selector_focus"
-        app:drawableLeftTint="@color/selector_focus" />
+        app:drawableLeftTint="@color/selector_focus"
+        tools:ignore="HardcodedText,RtlHardcoded"/>
 
     <com.bilibili.magicasakurademo.widgets.KeyEditText
         android:id="@+id/password"
@@ -56,7 +58,8 @@
         android:textCursorDrawable="@drawable/edittext_cursor"
         android:textSize="13sp"
         app:backgroundTint="@color/selector_focus"
-        app:drawableLeftTint="@color/selector_focus" />
+        app:drawableLeftTint="@color/selector_focus"
+        tools:ignore="HardcodedText,RtlHardcoded"/>
 
     <com.bilibili.magicasakura.widgets.TintButton
         android:id="@+id/login_btn"
@@ -68,5 +71,6 @@
         android:gravity="center"
         android:text="Login In"
         android:textColor="@color/white"
-        android:textSize="@dimen/textsize_large" />
+        android:textSize="@dimen/textsize_large"
+        tools:ignore="HardcodedText"/>
 </LinearLayout>

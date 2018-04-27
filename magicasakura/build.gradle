@@ -1,18 +1,12 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
-apply plugin: 'com.jfrog.bintray'
-
-version = "0.1.8"
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
-
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
     defaultConfig {
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName version
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
     }
 
     buildTypes {
@@ -23,81 +17,8 @@ android {
     }
 }
 
-def siteUrl = "https://github.com/Bilibili/MagicaSakura"
-def gitUrl = "https://github.com/Bilibili/MagicaSakura.git"
-
-group = "com.bilibili"
-
-install {
-    repositories.mavenInstaller {
-        // This generates POM.xml with proper paramters
-        pom.project {
-            packaging 'aar'
-
-            // Add your description here
-            name 'MagicaSakura'
-            url siteUrl
-
-            // Set your license
-            licenses {
-                license {
-                    name 'The Apache Software License, Version 2.0'
-                    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                }
-            }
-
-            developers {
-                developer {
-                    id 'xyczero'
-                    name 'xiayuncheng'
-                    email 'xyczero617@gmail.com'
-                }
-            }
-
-            scm {
-                connection gitUrl
-                developerConnection gitUrl
-                url siteUrl
-            }
-        }
-    }
-}
-
-task sourcesJar(type: Jar) {
-    from android.sourceSets.main.java.sourceFiles
-    classifier = 'sources'
-}
-
-artifacts {
-    archives sourcesJar
-}
-
-Properties properties = new Properties()
-properties.load(project.rootProject.file('local.properties').newDataInputStream())
-
-bintray {
-    user = properties.getProperty("bintray.user")
-    key = properties.getProperty("bintray.apikey")
-
-    configurations = ['archives']
-
-    pkg {
-        repo = "maven"
-        name = "MagicaSakura"
-        websiteUrl = siteUrl
-        vcsUrl = gitUrl
-        licenses = ["Apache-2.0"]
-        publish = true
-    }
-}
-
-
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-
-    compile "com.android.support:appcompat-v7:${rootProject.ext.supportVersion}"
-    compile "com.android.support:design:${rootProject.ext.supportVersion}"
-    compile "com.android.support:gridlayout-v7:${rootProject.ext.supportVersion}"
-    compile "com.android.support.constraint:constraint-layout:${rootProject.ext.constraintVersion}"
-
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation rootProject.ext.deps["design"]
+    implementation rootProject.ext.deps["constraint-layout"]
 }

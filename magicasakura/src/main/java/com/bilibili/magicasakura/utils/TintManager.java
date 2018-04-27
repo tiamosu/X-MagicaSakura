@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package com.bilibili.magicasakura.utils;
 
 import android.content.Context;
@@ -39,11 +38,7 @@ import java.lang.ref.WeakReference;
 import java.util.Map;
 import java.util.WeakHashMap;
 
-/**
- * @author xyczero617@gmail.com
- * @time 15/9/15
- */
-@SuppressWarnings("WeakerAccess")
+@SuppressWarnings({"WeakerAccess", "unused"})
 public class TintManager {
 
     private static final String TAG = "TintManager";
@@ -51,7 +46,7 @@ public class TintManager {
     private static final PorterDuff.Mode DEFAULT_MODE = PorterDuff.Mode.SRC_IN;
     private static final String SKIP_DRAWABLE_TAG = "appcompat_skip_skip";
 
-    private static final WeakHashMap<Context, com.bilibili.magicasakura.utils.TintManager> INSTANCE_CACHE = new WeakHashMap<>();
+    private static final WeakHashMap<Context, TintManager> INSTANCE_CACHE = new WeakHashMap<>();
     private static final ColorFilterLruCache COLOR_FILTER_CACHE = new ColorFilterLruCache(6);
 
     private final Object mDrawableCacheLock = new Object();
@@ -61,20 +56,19 @@ public class TintManager {
     private SparseArray<WeakReference<Drawable.ConstantState>> mCacheDrawables;
     private SparseArray<String> mSkipDrawableIdTags;
 
-    public static com.bilibili.magicasakura.utils.TintManager get(Context context) {
+    public static TintManager get(Context context) {
         if (context == null) {
             return null;
         }
-
         if (context instanceof ContextThemeWrapper) {
             context = ((ContextThemeWrapper) context).getBaseContext();
         }
         if (context instanceof android.view.ContextThemeWrapper) {
             context = ((android.view.ContextThemeWrapper) context).getBaseContext();
         }
-        com.bilibili.magicasakura.utils.TintManager tm = INSTANCE_CACHE.get(context);
+        TintManager tm = INSTANCE_CACHE.get(context);
         if (tm == null) {
-            tm = new com.bilibili.magicasakura.utils.TintManager(context);
+            tm = new TintManager(context);
             INSTANCE_CACHE.put(context, tm);
             printLog("[get TintManager] create new TintManager.");
         }
@@ -86,8 +80,8 @@ public class TintManager {
     }
 
     public static void clearTintCache() {
-        for (Map.Entry<Context, com.bilibili.magicasakura.utils.TintManager> entry : INSTANCE_CACHE.entrySet()) {
-            com.bilibili.magicasakura.utils.TintManager tm = entry.getValue();
+        for (Map.Entry<Context, TintManager> entry : INSTANCE_CACHE.entrySet()) {
+            final TintManager tm = entry.getValue();
             if (tm != null) {
                 tm.clear();
             }
@@ -178,7 +172,7 @@ public class TintManager {
 
             final WeakReference<Drawable.ConstantState> weakReference = mCacheDrawables.get(key);
             if (weakReference != null) {
-                Drawable.ConstantState cs = weakReference.get();
+                final Drawable.ConstantState cs = weakReference.get();
                 if (cs != null) {
                     printLog("[getCacheDrawable] Get drawable from cache: " +
                             context.getResources().getResourceName(key));
@@ -218,6 +212,7 @@ public class TintManager {
             return get(generateCacheKey(color, mode));
         }
 
+        @SuppressWarnings("UnusedReturnValue")
         PorterDuffColorFilter put(int color, PorterDuff.Mode mode, PorterDuffColorFilter filter) {
             return put(generateCacheKey(color, mode), filter);
         }
@@ -230,7 +225,7 @@ public class TintManager {
         }
     }
 
-    public static void tintViewBackground(View view, com.bilibili.magicasakura.utils.TintInfo tint) {
+    public static void tintViewBackground(View view, TintInfo tint) {
         Drawable background;
         if (view == null || (background = view.getBackground()) == null) {
             return;
@@ -239,7 +234,8 @@ public class TintManager {
         if (tint.mHasTintList || tint.mHasTintMode) {
             background.mutate();
             if (background instanceof ColorDrawable) {
-                ((ColorDrawable) background).setColor(ThemeUtils.replaceColor(view.getContext(), tint.mTintList.getColorForState(view.getDrawableState(), tint.mTintList.getDefaultColor())));
+                ((ColorDrawable) background).setColor(ThemeUtils.replaceColor(view.getContext(),
+                        tint.mTintList.getColorForState(view.getDrawableState(), tint.mTintList.getDefaultColor())));
             } else {
                 background.setColorFilter(createTintFilter(view.getContext(),
                         tint.mHasTintList ? tint.mTintList : null,
@@ -264,7 +260,8 @@ public class TintManager {
         if (tint.mHasTintList || tint.mHasTintMode) {
             drawable.mutate();
             if (drawable instanceof ColorDrawable) {
-                ((ColorDrawable) drawable).setColor(ThemeUtils.replaceColor(view.getContext(), tint.mTintList.getColorForState(view.getDrawableState(), tint.mTintList.getDefaultColor())));
+                ((ColorDrawable) drawable).setColor(ThemeUtils.replaceColor(view.getContext(),
+                        tint.mTintList.getColorForState(view.getDrawableState(), tint.mTintList.getDefaultColor())));
             } else {
                 drawable.setColorFilter(createTintFilter(view.getContext(),
                         tint.mHasTintList ? tint.mTintList : null,
@@ -282,7 +279,8 @@ public class TintManager {
         }
     }
 
-    private static PorterDuffColorFilter createTintFilter(Context context, ColorStateList tint, PorterDuff.Mode tintMode, final int[] state) {
+    private static PorterDuffColorFilter createTintFilter(Context context, ColorStateList tint,
+                                                          PorterDuff.Mode tintMode, final int[] state) {
         if (tint == null || tintMode == null) {
             return null;
         }

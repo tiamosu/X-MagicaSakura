@@ -19,14 +19,13 @@ package com.bilibili.magicasakura.widgets;
 import android.content.Context;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
-import android.support.v7.widget.GridLayout;
 import android.util.AttributeSet;
+import android.widget.GridLayout;
 
 import com.bilibili.magicasakura.utils.TintManager;
 
 /**
- * @author xyczero617@gmail.com
- * @time 16/2/23
+ * @author xia
  */
 @SuppressWarnings("deprecation")
 public class TintGridLayout extends GridLayout implements Tintable, AppCompatBackgroundHelper.BackgroundExtensible {
@@ -52,8 +51,8 @@ public class TintGridLayout extends GridLayout implements Tintable, AppCompatBac
     }
 
     @Override
-    public void setBackgroundDrawable(Drawable background) {
-        super.setBackgroundDrawable(background);
+    public void setBackground(Drawable background) {
+        super.setBackground(background);
         if (mBackgroundHelper != null) {
             mBackgroundHelper.setBackgroundDrawableExternal(background);
         }

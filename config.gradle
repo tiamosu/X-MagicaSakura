@@ -1,0 +1,20 @@
+ext {
+    android = [
+            compileSdkVersion: 27,
+            buildToolsVersion: "27.0.3",
+            minSdkVersion    : 15,
+            targetSdkVersion : 25,
+            versionName      : "2.0.0",
+            versionCode      : 1,
+    ]
+
+    depsVersion = [
+            support: "27.1.1",
+    ]
+
+    deps = [
+            "design"           : "com.android.support:design:${depsVersion.support}",
+            "preference-v7"    : "com.android.support:preference-v7:${depsVersion.support}",
+            "constraint-layout": "com.android.support.constraint:constraint-layout:1.1.0",
+    ]
+}

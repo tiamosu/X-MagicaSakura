@@ -1,21 +1,6 @@
-/*
- * Copyright (C) 2016 Bilibili
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *         http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.bilibili.magicasakura.utils;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.ContextWrapper;
@@ -61,10 +46,9 @@ import java.lang.reflect.Method;
 import java.util.LinkedList;
 
 /**
- * Created by xyczero on 15/9/6.
- * Email : xyczero@sina.com
+ * @author xia
  */
-@SuppressWarnings({"WeakerAccess", "deprecation"})
+@SuppressWarnings({"WeakerAccess", "deprecation", "unused"})
 public class ThemeUtils {
     private static final ThreadLocal<TypedValue> TL_TYPED_VALUE = new ThreadLocal<>();
 
@@ -90,6 +74,7 @@ public class ThemeUtils {
         return wrapper;
     }
 
+    @SuppressLint("ResourceType")
     public static Drawable tintDrawable(Context context, @DrawableRes int resId, @ColorRes int colorId) {
         if (resId <= 0 || colorId <= 0) {
             return null;
@@ -102,6 +87,7 @@ public class ThemeUtils {
         return tintDrawable(drawable, color, PorterDuff.Mode.SRC_IN);
     }
 
+    @SuppressLint("ResourceType")
     public static Drawable tintDrawableByDrawableId(Context context, @DrawableRes int resId, @ColorInt int color) {
         if (resId <= 0) {
             return null;
@@ -110,6 +96,7 @@ public class ThemeUtils {
         return tintDrawable(drawable, color);
     }
 
+    @SuppressLint("ResourceType")
     public static Drawable tintDrawableByColorId(Context context, Drawable drawable, @ColorRes int colorId) {
         if (drawable == null) {
             return null;
@@ -130,6 +117,7 @@ public class ThemeUtils {
         return wrapper;
     }
 
+    @SuppressLint("ResourceType")
     public static Drawable tintDrawableByColorList(Context context, Drawable drawable, @ColorRes int colorListId, PorterDuff.Mode mode) {
         if (drawable == null) {
             return null;
@@ -288,9 +276,10 @@ public class ThemeUtils {
         return false;
     }
 
+    @SuppressLint("RestrictedApi")
     public static Drawable getWrapperDrawable(Drawable drawable) {
-        if (drawable instanceof android.support.v4.graphics.drawable.DrawableWrapper) {
-            return ((android.support.v4.graphics.drawable.DrawableWrapper) drawable).getWrappedDrawable();
+        if (drawable instanceof android.support.v4.graphics.drawable.WrappedDrawable) {
+            return ((android.support.v4.graphics.drawable.WrappedDrawable) drawable).getWrappedDrawable();
         } else if (drawable instanceof android.support.v7.graphics.drawable.DrawableWrapper) {
             return ((android.support.v7.graphics.drawable.DrawableWrapper) drawable).getWrappedDrawable();
         } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && drawable instanceof android.graphics.drawable.DrawableWrapper) {
@@ -329,7 +318,7 @@ public class ThemeUtils {
         return resource;
     }
 
-    static com.bilibili.magicasakura.utils.TintInfo parseColorStateList(ColorStateList origin) {
+    static TintInfo parseColorStateList(ColorStateList origin) {
         if (origin == null) {
             return null;
         }
@@ -377,7 +366,7 @@ public class ThemeUtils {
         }
 
         if (colorList.size() > 1) {
-            return new com.bilibili.magicasakura.utils.TintInfo(stateList, colorList);
+            return new TintInfo(stateList, colorList);
         } else {
             return null;
         }
@@ -450,7 +439,8 @@ public class ThemeUtils {
     private static Field sRecyclerBin;
     private static Method sListViewClearMethod;
 
-    @SuppressWarnings("TryWithIdenticalCatches")
+    @SuppressLint("PrivateApi")
+    @SuppressWarnings({"TryWithIdenticalCatches", "JavaReflectionMemberAccess"})
     private static void refreshView(View view, ExtraRefreshable extraRefreshable) {
         if (view == null) {
             return;

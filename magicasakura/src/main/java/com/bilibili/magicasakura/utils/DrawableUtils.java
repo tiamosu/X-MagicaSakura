@@ -1,21 +1,6 @@
-/*
- * Copyright (C) 2016 Bilibili
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *         http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.bilibili.magicasakura.utils;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
@@ -40,18 +25,13 @@ import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
 
-/**
- * @author xyczero617@gmail.com
- * @time 16/2/22
- */
-@SuppressWarnings("WeakerAccess")
+@SuppressWarnings({"WeakerAccess", "unused", "SameParameterValue"})
 public class DrawableUtils {
 
     static Drawable createDrawable(Context context, int resId) {
         if (resId <= 0) {
             return null;
         }
-
         final TypedValue typedValue = new TypedValue();
         final Resources res = context.getResources();
         res.getValue(resId, typedValue, true);
@@ -89,11 +69,13 @@ public class DrawableUtils {
         return dr;
     }
 
-    static Drawable createFromXmlInner(Context context, XmlPullParser parser, AttributeSet attrs) throws IOException, XmlPullParserException {
+    static Drawable createFromXmlInner(Context context, XmlPullParser parser, AttributeSet attrs)
+            throws IOException, XmlPullParserException {
         return createFromXmlInner(context, parser, attrs, 0);
     }
 
-    static Drawable createFromXmlInner(Context context, XmlPullParser parser, AttributeSet attrs, int resId) throws IOException, XmlPullParserException {
+    static Drawable createFromXmlInner(Context context, XmlPullParser parser, AttributeSet attrs, int resId)
+            throws IOException, XmlPullParserException {
         final DrawableInflateDelegate delegate;
 
         final String name = parser.getName();
@@ -125,6 +107,7 @@ public class DrawableUtils {
      * @param attrs The attribute set.
      * @return An array of state_ attributes.
      */
+    @SuppressWarnings("UnnecessaryContinue")
     static int[] extractStateSet(AttributeSet attrs) {
         int j = 0;
         final int numAttrs = attrs.getAttributeCount();
@@ -151,7 +134,7 @@ public class DrawableUtils {
 
     static int getAttrTintColor(Context context, AttributeSet attrs, int attr, int defaultValue) {
         final TypedArray a = obtainAttributes(context.getResources(), context.getTheme(), attrs, new int[]{attr});
-        final int tintColor = com.bilibili.magicasakura.utils.ThemeUtils.replaceColor(context, a.getColor(0, defaultValue));
+        final int tintColor = ThemeUtils.replaceColor(context, a.getColor(0, defaultValue));
         a.recycle();
         return tintColor;
     }
@@ -190,7 +173,7 @@ public class DrawableUtils {
     }
 
     static PorterDuff.Mode getTintMode(Context context, AttributeSet attrs, int tintModeAttr) {
-        TypedArray a = obtainAttributes(context.getResources(), context.getTheme(), attrs, new int[]{tintModeAttr});
+        final TypedArray a = obtainAttributes(context.getResources(), context.getTheme(), attrs, new int[]{tintModeAttr});
         final int tintModeValue = a.getInt(0, 0);
         a.recycle();
         return parseTintMode(tintModeValue, PorterDuff.Mode.SRC_IN);
@@ -201,16 +184,17 @@ public class DrawableUtils {
     }
 
     static int getAttrDimensionPixelSize(Context context, AttributeSet attrs, int attr, int defaultValue) {
-        TypedArray a = obtainAttributes(context.getResources(), context.getTheme(), attrs, new int[]{attr});
+        final TypedArray a = obtainAttributes(context.getResources(), context.getTheme(), attrs, new int[]{attr});
         final int value = a.getDimensionPixelSize(0, defaultValue);
         a.recycle();
         return value;
     }
 
     static int getAttrColor(Context context, AttributeSet attrs, int attr, int defaultValue) {
-        TypedArray a = obtainAttributes(context.getResources(), context.getTheme(), attrs, new int[]{attr});
+        final TypedArray a = obtainAttributes(context.getResources(), context.getTheme(), attrs, new int[]{attr});
         final int colorId = a.getResourceId(0, 0);
-        final int value = colorId != 0 ? com.bilibili.magicasakura.utils.ThemeUtils.replaceColorById(context, colorId) : com.bilibili.magicasakura.utils.ThemeUtils.replaceColor(context, a.getColor(0, defaultValue));
+        final int value = colorId != 0 ? ThemeUtils.replaceColorById(context, colorId)
+                : ThemeUtils.replaceColor(context, a.getColor(0, defaultValue));
         a.recycle();
         return value;
     }
@@ -220,7 +204,7 @@ public class DrawableUtils {
     }
 
     static int getAttrDimensionPixelOffset(Context context, AttributeSet attrs, int attr, int defaultValue) {
-        TypedArray a = obtainAttributes(context.getResources(), context.getTheme(), attrs, new int[]{attr});
+        final TypedArray a = obtainAttributes(context.getResources(), context.getTheme(), attrs, new int[]{attr});
         final int value = a.getDimensionPixelOffset(0, defaultValue);
         a.recycle();
         return value;
@@ -231,42 +215,42 @@ public class DrawableUtils {
     }
 
     static float getAttrDimension(Context context, AttributeSet attrs, int attr, int defaultValue) {
-        TypedArray a = obtainAttributes(context.getResources(), context.getTheme(), attrs, new int[]{attr});
+        final TypedArray a = obtainAttributes(context.getResources(), context.getTheme(), attrs, new int[]{attr});
         final float value = a.getDimension(0, defaultValue);
         a.recycle();
         return value;
     }
 
     static float getAttrFloat(Context context, AttributeSet attrs, int attr, float defaultValue) {
-        TypedArray a = obtainAttributes(context.getResources(), context.getTheme(), attrs, new int[]{attr});
+        final TypedArray a = obtainAttributes(context.getResources(), context.getTheme(), attrs, new int[]{attr});
         final float alphaMod = a.getFloat(0, defaultValue);
         a.recycle();
         return alphaMod;
     }
 
     static int getAttrInt(Context context, AttributeSet attrs, int attr, int defaultValue) {
-        TypedArray a = obtainAttributes(context.getResources(), context.getTheme(), attrs, new int[]{attr});
+        final TypedArray a = obtainAttributes(context.getResources(), context.getTheme(), attrs, new int[]{attr});
         final int value = a.getInt(0, defaultValue);
         a.recycle();
         return value;
     }
 
     static boolean getAttrBoolean(Context context, AttributeSet attrs, int attr, boolean defaultValue) {
-        TypedArray a = obtainAttributes(context.getResources(), context.getTheme(), attrs, new int[]{attr});
+        final TypedArray a = obtainAttributes(context.getResources(), context.getTheme(), attrs, new int[]{attr});
         final boolean value = a.getBoolean(0, defaultValue);
         a.recycle();
         return value;
     }
 
     static boolean getAttrHasValue(Context context, AttributeSet attrs, int attr) {
-        TypedArray a = obtainAttributes(context.getResources(), context.getTheme(), attrs, new int[]{attr});
+        final TypedArray a = obtainAttributes(context.getResources(), context.getTheme(), attrs, new int[]{attr});
         final boolean flag = a.hasValue(0);
         a.recycle();
         return flag;
     }
 
     static int getAttrResourceId(Context context, AttributeSet attrs, int attr, int defaultValue) {
-        TypedArray a = obtainAttributes(context.getResources(), context.getTheme(), attrs, new int[]{attr});
+        final TypedArray a = obtainAttributes(context.getResources(), context.getTheme(), attrs, new int[]{attr});
         final int id = a.getResourceId(0, defaultValue);
         a.recycle();
         return id;
@@ -280,6 +264,7 @@ public class DrawableUtils {
         return theme.obtainStyledAttributes(set, attrs, 0, 0);
     }
 
+    @SuppressLint("ObsoleteSdkInt")
     public static PorterDuff.Mode parseTintMode(int value, PorterDuff.Mode defaultMode) {
         switch (value) {
             case 3:
