@@ -1,12 +1,15 @@
 apply plugin: 'com.android.library'
 
+def config = rootProject.ext.android
+def deps = rootProject.ext.deps
+
 android {
-    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    compileSdkVersion config["compileSdkVersion"]
     defaultConfig {
-        minSdkVersion rootProject.ext.android.minSdkVersion
-        targetSdkVersion rootProject.ext.android.targetSdkVersion
-        versionCode rootProject.ext.android.versionCode
-        versionName rootProject.ext.android.versionName
+        minSdkVersion config["minSdkVersion"]
+        targetSdkVersion config["targetSdkVersion"]
+        versionCode config["versionCode"]
+        versionName config["versionName"]
     }
 
     buildTypes {
@@ -19,6 +22,6 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation rootProject.ext.deps["design"]
-    implementation rootProject.ext.deps["constraint-layout"]
+    implementation deps["design"]
+    implementation deps["constraint_layout"]
 }
