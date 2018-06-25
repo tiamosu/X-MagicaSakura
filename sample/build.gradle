@@ -1,16 +1,13 @@
 apply plugin: 'com.android.application'
 
-def config = rootProject.ext.android
-def deps = rootProject.ext.deps
-
 android {
-    compileSdkVersion config["compileSdkVersion"]
+    compileSdkVersion global.compileSdkVersion
     defaultConfig {
         applicationId "com.bilibili.magicasakurademo"
-        minSdkVersion config["minSdkVersion"]
-        targetSdkVersion config["targetSdkVersion"]
-        versionCode config["versionCode"]
-        versionName config["versionName"]
+        minSdkVersion global.minSdkVersion
+        targetSdkVersion global.targetSdkVersion
+        versionCode version_code
+        versionName version_name
     }
 
     buildTypes {
@@ -25,6 +22,5 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(':magicasakura')
 
-    implementation deps["design"]
-    implementation deps["preference_v7"]
+    implementation global.design()
 }
