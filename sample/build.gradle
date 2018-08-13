@@ -1,11 +1,11 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion global.compileSdkVersion
+    compileSdkVersion global.compileSdkVersion()
     defaultConfig {
         applicationId "com.bilibili.magicasakurademo"
-        minSdkVersion global.minSdkVersion
-        targetSdkVersion global.targetSdkVersion
+        minSdkVersion global.minSdkVersion()
+        targetSdkVersion global.targetSdkVersion()
         versionCode version_code
         versionName version_name
     }

@@ -1,20 +1,19 @@
 buildscript {
     repositories {
-        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
-        maven { url 'http://maven.aliyun.com/nexus/content/repositories/jcenter' }
+        jcenter()
         google()
+        maven { url 'https://dl.bintray.com/weixia/maven' }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.3'
-        classpath 'com.weixia:plugin:1.1.8'
+        classpath 'com.android.tools.build:gradle:3.1.4'
+        classpath 'com.xia:x-plugin:1.0.9'
     }
 }
 
 allprojects {
-    apply plugin: 'com.xia.global.management.plugin'
+    apply plugin: 'com.xia.global.plugin'
     repositories {
-        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
-        maven { url 'http://maven.aliyun.com/nexus/content/repositories/jcenter' }
+        jcenter()
         google()
     }
 }
