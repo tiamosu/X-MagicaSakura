@@ -23,7 +23,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    compileOnly global.design()
+    implementation global.design()
     compileOnly global.constraintLayout('1.1.2')
 }
 
