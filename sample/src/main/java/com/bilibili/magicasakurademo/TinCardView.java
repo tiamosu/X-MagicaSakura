@@ -1,37 +1,49 @@
-package com.bilibili.magicasakura.widgets;
+package com.bilibili.magicasakurademo;
 
 import android.content.Context;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v7.widget.CardView;
 import android.util.AttributeSet;
-import android.widget.ScrollView;
 
 import com.bilibili.magicasakura.utils.TintManager;
+import com.bilibili.magicasakura.widgets.AppCompatBackgroundHelper;
+import com.bilibili.magicasakura.widgets.AppCompatForegroundHelper;
+import com.bilibili.magicasakura.widgets.Tintable;
 
 /**
  * @author xia
- * @date 2018/1/21.
+ * @date 2018/8/20.
  */
-@SuppressWarnings("deprecation")
-public class TintScrollView extends ScrollView implements Tintable, AppCompatBackgroundHelper.BackgroundExtensible {
-    private AppCompatBackgroundHelper mBackgroundHelper;
+public class TinCardView extends CardView implements Tintable,
+        AppCompatBackgroundHelper.BackgroundExtensible,
+        AppCompatForegroundHelper.ForegroundExtensible {
 
-    public TintScrollView(Context context) {
+    private AppCompatBackgroundHelper mBackgroundHelper;
+    private AppCompatForegroundHelper mForegroundHelper;
+
+    public TinCardView(@NonNull Context context) {
         this(context, null);
     }
 
-    public TintScrollView(Context context, AttributeSet attrs) {
-        this(context, attrs, android.R.attr.scrollViewStyle);
+    public TinCardView(@NonNull Context context, @Nullable AttributeSet attrs) {
+        this(context, attrs, 0);
     }
 
-    public TintScrollView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public TinCardView(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         if (isInEditMode()) {
             return;
         }
-        final TintManager tintManager = TintManager.get(context);
+        TintManager tintManager = TintManager.get(context);
+
         mBackgroundHelper = new AppCompatBackgroundHelper(this, tintManager);
         mBackgroundHelper.loadFromAttribute(attrs, defStyleAttr);
+
+        mForegroundHelper = new AppCompatForegroundHelper(this, tintManager);
+        mForegroundHelper.loadFromAttribute(attrs, defStyleAttr);
     }
 
     @Override
@@ -42,7 +54,34 @@ public class TintScrollView extends ScrollView implements Tintable, AppCompatBac
         }
     }
 
-    @SuppressWarnings("AliDeprecation")
+    @Override
+    public void setForeground(Drawable foreground) {
+        super.setForeground(foreground);
+        if (mForegroundHelper != null) {
+            mForegroundHelper.setForegroundDrawableExternal(foreground);
+        }
+    }
+
+    public void setForegroundResource(int resId) {
+        if (mForegroundHelper != null) {
+            mForegroundHelper.setForegroundResId(resId);
+        }
+    }
+
+    @Override
+    public void setForegroundTintList(int resId) {
+        if (mForegroundHelper != null) {
+            mForegroundHelper.setForegroundTintList(resId, null);
+        }
+    }
+
+    @Override
+    public void setForegroundTintList(int resId, PorterDuff.Mode mode) {
+        if (mForegroundHelper != null) {
+            mForegroundHelper.setForegroundTintList(resId, mode);
+        }
+    }
+
     @Override
     public void setBackgroundDrawable(Drawable background) {
         super.setBackgroundDrawable(background);
@@ -86,6 +125,9 @@ public class TintScrollView extends ScrollView implements Tintable, AppCompatBac
     public void tint() {
         if (mBackgroundHelper != null) {
             mBackgroundHelper.tint();
+        }
+        if (mForegroundHelper != null) {
+            mForegroundHelper.tint();
         }
     }
 }

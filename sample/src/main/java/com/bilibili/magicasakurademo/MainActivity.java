@@ -21,6 +21,7 @@ import android.app.ActivityManager;
 import android.graphics.Rect;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.util.SparseArrayCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -64,10 +65,10 @@ public class MainActivity extends AppCompatActivity implements CardPickerDialog.
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(null);
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler);
+        RecyclerView recyclerView = findViewById(R.id.recycler);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setSmoothScrollbarEnabled(true);
         assert recyclerView != null;
@@ -154,13 +155,12 @@ public class MainActivity extends AppCompatActivity implements CardPickerDialog.
 
                         @Override
                         public void refreshSpecificView(View view) {
-                            //TODO: will do this for each traversal
                         }
                     }
             );
             View view = findViewById(R.id.snack_layout);
             if (view != null) {
-                TextView textView = (TextView) view.findViewById(R.id.content);
+                TextView textView = view.findViewById(R.id.content);
                 textView.setText(getSnackContent(currentTheme));
                 SnackAnimationUtil.with(this, R.anim.snack_in, R.anim.snack_out)
                         .setDismissDelayTime(1000)
@@ -182,13 +182,15 @@ public class MainActivity extends AppCompatActivity implements CardPickerDialog.
         List<Integer> viewHolderTypes = new ArrayList<>();
         SparseArrayCompat<Integer> titleIndexs = new SparseArrayCompat<>();
 
+        @SuppressWarnings("ConstantConditions")
+        @NonNull
         @Override
-        public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             return ViewHolder.create(parent, viewType);
         }
 
         @Override
-        public void onBindViewHolder(ViewHolder holder, int position) {
+        public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
             if (holder instanceof ViewHolderHeader) {
                 ((ViewHolderHeader) holder).setTitle(titleIndexs.get(position));
             }
@@ -250,8 +252,8 @@ public class MainActivity extends AppCompatActivity implements CardPickerDialog.
 
         public ViewHolderHeader(View itemView) {
             super(itemView);
-            icon = (TintImageView) itemView.findViewById(R.id.icon);
-            title = (TextView) itemView.findViewById(R.id.title);
+            icon = itemView.findViewById(R.id.icon);
+            title = itemView.findViewById(R.id.title);
         }
 
         public void setTitle(int index) {
@@ -274,9 +276,9 @@ public class MainActivity extends AppCompatActivity implements CardPickerDialog.
 
         public ViewHolderLabel(View itemView) {
             super(itemView);
-            title = (TextView) itemView.findViewById(R.id.title);
-            content = (TextView) itemView.findViewById(R.id.prompt);
-            switchCompat = (SwitchCompat) itemView.findViewById(R.id.switch_button);
+            title = itemView.findViewById(R.id.title);
+            content = itemView.findViewById(R.id.prompt);
+            switchCompat = itemView.findViewById(R.id.switch_button);
             switchCompat.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -302,9 +304,9 @@ public class MainActivity extends AppCompatActivity implements CardPickerDialog.
         public ViewHolderLogin(View itemView) {
             super(itemView);
             loginLayout = itemView.findViewById(R.id.login_layout);
-            name = (KeyEditText) itemView.findViewById(R.id.username);
-            password = (KeyEditText) itemView.findViewById(R.id.password);
-            loginBtn = (Button) itemView.findViewById(R.id.login_btn);
+            name = itemView.findViewById(R.id.username);
+            password = itemView.findViewById(R.id.password);
+            loginBtn = itemView.findViewById(R.id.login_btn);
             name.setKeyPreImeListener(this);
             password.setKeyPreImeListener(this);
             name.addTextChangedListener(textWatcher);
@@ -350,8 +352,8 @@ public class MainActivity extends AppCompatActivity implements CardPickerDialog.
 
         public ViewHolderChoice(View itemView) {
             super(itemView);
-            textView1 = (TextView) itemView.findViewById(R.id.progress_setting);
-            textView2 = (TextView) itemView.findViewById(R.id.download);
+            textView1 = itemView.findViewById(R.id.progress_setting);
+            textView2 = itemView.findViewById(R.id.download);
             textView1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

@@ -19,7 +19,6 @@ import com.bilibili.magicasakurademo.utils.ThemeHelper;
  * @author xia
  * @date 2018/1/21.
  */
-
 public class ExampleActivity extends AppCompatActivity implements CardPickerDialog.ClickListener {
 
     @SuppressWarnings("ConstantConditions")
@@ -28,7 +27,7 @@ public class ExampleActivity extends AppCompatActivity implements CardPickerDial
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_example);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(null);
     }

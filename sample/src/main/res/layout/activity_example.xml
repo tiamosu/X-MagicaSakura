@@ -5,25 +5,49 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/theme_color_primary_trans"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:ignore="all">
 
-    <com.bilibili.magicasakura.widgets.TintToolbar
-        android:id="@+id/toolbar"
-        style="@style/Widget.App.Toolbar"
+    <android.support.v7.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:background="@color/theme_color_primary"
-        app:elevation="4dp">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:paddingLeft="@dimen/padding"
-            android:text="@string/app_name"
-            android:textColor="@color/white"
-            android:textSize="22sp"
-            tools:ignore="RtlHardcoded,RtlSymmetry"/>
-    </com.bilibili.magicasakura.widgets.TintToolbar>
+        <com.bilibili.magicasakura.widgets.TintToolbar
+            android:id="@+id/toolbar"
+            style="@style/Widget.App.Toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@color/theme_color_primary"
+            app:elevation="4dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/padding"
+                android:text="@string/app_name"
+                android:textColor="@color/white"
+                android:textSize="22sp"/>
+        </com.bilibili.magicasakura.widgets.TintToolbar>
+
+        <com.bilibili.magicasakurademo.TinCardView
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/theme_color_primary"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="10dp"/>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="15dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="10dp"/>
+    </android.support.v7.widget.LinearLayoutCompat>
 </com.bilibili.magicasakura.widgets.TintScrollView>

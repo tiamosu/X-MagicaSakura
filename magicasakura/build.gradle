@@ -24,7 +24,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation global.design()
-    compileOnly global.constraintLayout('1.1.2')
+    implementation global.constraintLayout('1.1.2')
 }
 
 tasks.withType(Javadoc) {

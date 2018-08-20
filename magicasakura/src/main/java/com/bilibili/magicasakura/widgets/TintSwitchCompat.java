@@ -1,5 +1,6 @@
 package com.bilibili.magicasakura.widgets;
 
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.ColorStateList;
@@ -22,7 +23,6 @@ import com.bilibili.magicasakura.utils.TintManager;
  * @author xyczero617@gmail.com
  * @since 17/5/23
  */
-
 @SuppressWarnings("deprecation")
 public class TintSwitchCompat extends SwitchCompat implements Tintable, AppCompatTextHelper.TextExtensible,
         AppCompatBackgroundHelper.BackgroundExtensible, AppCompatSwitchHelper.SwitchCompatExtensible,
@@ -88,6 +88,7 @@ public class TintSwitchCompat extends SwitchCompat implements Tintable, AppCompa
         mTextHelper.loadFromAttribute(attrs, defStyleAttr);
     }
 
+    @SuppressLint("NewApi")
     @Override
     protected void drawableStateChanged() {
         super.drawableStateChanged();
