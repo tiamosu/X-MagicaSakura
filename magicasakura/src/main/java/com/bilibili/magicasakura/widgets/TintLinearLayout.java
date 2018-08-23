@@ -34,7 +34,9 @@ import com.bilibili.magicasakura.utils.TintManager;
  * @time 16/2/14
  */
 @SuppressWarnings("deprecation")
-public class TintLinearLayout extends LinearLayout implements Tintable, AppCompatBackgroundHelper.BackgroundExtensible {
+public class TintLinearLayout extends LinearLayout implements Tintable,
+        AppCompatBackgroundHelper.BackgroundExtensible {
+
     private AppCompatBackgroundHelper mBackgroundHelper;
     private int mDividerColorId;
 

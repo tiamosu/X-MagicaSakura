@@ -30,8 +30,10 @@ import com.bilibili.magicasakura.utils.TintManager;
  * @time 16/2/14
  */
 @SuppressLint("AppCompatCustomView")
-public class TintAutoCompleteTextView extends AutoCompleteTextView implements Tintable, AppCompatBackgroundHelper.BackgroundExtensible,
+public class TintAutoCompleteTextView extends AutoCompleteTextView implements Tintable,
+        AppCompatBackgroundHelper.BackgroundExtensible,
         AppCompatCompoundDrawableHelper.CompoundDrawableExtensible {
+
     private AppCompatBackgroundHelper mBackgroundHelper;
     private AppCompatCompoundDrawableHelper mCompoundDrawableHelper;
 

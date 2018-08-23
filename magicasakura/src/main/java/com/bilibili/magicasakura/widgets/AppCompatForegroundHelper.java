@@ -37,9 +37,7 @@ import com.bilibili.magicasakura.utils.TintManager;
  */
 @SuppressWarnings("WeakerAccess")
 public class AppCompatForegroundHelper extends AppCompatBaseHelper<View> {
-
     private TintInfo mForegroundTintInfo;
-
     private int mForegroundResId;
     private int mForegroundTintResId;
 

@@ -42,8 +42,7 @@ public class TintProgressBar extends ProgressBar implements Tintable {
         if (isInEditMode()) {
             return;
         }
-        TintManager tintManage = TintManager.get(context);
-
+        final TintManager tintManage = TintManager.get(context);
         mProgressBarHelper = new AppCompatProgressBarHelper(this, tintManage);
         mProgressBarHelper.loadFromAttribute(attrs, defStyleAttr);
     }

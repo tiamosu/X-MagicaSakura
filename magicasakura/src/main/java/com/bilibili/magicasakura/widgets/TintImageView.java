@@ -31,8 +31,10 @@ import com.bilibili.magicasakura.utils.TintManager;
  */
 @SuppressWarnings("deprecation")
 @SuppressLint("AppCompatCustomView")
-public class TintImageView extends ImageView implements Tintable, AppCompatBackgroundHelper.BackgroundExtensible,
+public class TintImageView extends ImageView implements Tintable,
+        AppCompatBackgroundHelper.BackgroundExtensible,
         AppCompatImageHelper.ImageExtensible {
+
     private AppCompatBackgroundHelper mBackgroundHelper;
     private AppCompatImageHelper mImageHelper;
 
@@ -49,7 +51,7 @@ public class TintImageView extends ImageView implements Tintable, AppCompatBackg
         if (isInEditMode()) {
             return;
         }
-        TintManager tintManager = TintManager.get(context);
+        final TintManager tintManager = TintManager.get(context);
 
         mBackgroundHelper = new AppCompatBackgroundHelper(this, tintManager);
         mBackgroundHelper.loadFromAttribute(attrs, defStyleAttr);

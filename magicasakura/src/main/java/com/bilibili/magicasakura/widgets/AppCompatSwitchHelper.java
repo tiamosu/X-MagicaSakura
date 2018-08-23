@@ -22,7 +22,6 @@ import com.bilibili.magicasakura.utils.TintManager;
 
 @SuppressWarnings("WeakerAccess")
 public class AppCompatSwitchHelper {
-
     private int[] sAttrs;
     private SwitchCompat mSwitchCompat;
     private TintManager mTintManager;

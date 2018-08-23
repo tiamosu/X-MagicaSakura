@@ -66,17 +66,20 @@ public class TintCheckedTextView extends CheckedTextView implements Tintable {
     }
 
     public void tintCheckTextView(Context context, @DrawableRes int resId, int tintId) {
-        Drawable drawable = DrawableCompat.wrap(ContextCompat.getDrawable(context, resId));
-        DrawableCompat.setTintList(drawable, TintManager.get(getContext()).getColorStateList(tintId));
-        DrawableCompat.setTintMode(drawable, PorterDuff.Mode.SRC_IN);
-        //android-sdk-23 material layout is deprecate android.R.styleable#CheckedTextView_checkMark
-        //follow android native style, check position is left when version is above 5.0
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            setCompoundDrawablesRelativeWithIntrinsicBounds(drawable, null, null, null);
-            setCheckMarkDrawable(null);
-        } else {
-            setCheckMarkDrawable(drawable);
-            setCompoundDrawablesWithIntrinsicBounds(null, null, null, null);
+        final Drawable drawable = ContextCompat.getDrawable(context, resId);
+        if (drawable != null) {
+            final Drawable newDrawable = DrawableCompat.wrap(drawable);
+            DrawableCompat.setTintList(newDrawable, TintManager.get(getContext()).getColorStateList(tintId));
+            DrawableCompat.setTintMode(newDrawable, PorterDuff.Mode.SRC_IN);
+            //android-sdk-23 material layout is deprecate android.R.styleable#CheckedTextView_checkMark
+            //follow android native style, check position is left when version is above 5.0
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                setCompoundDrawablesRelativeWithIntrinsicBounds(newDrawable, null, null, null);
+                setCheckMarkDrawable(null);
+            } else {
+                setCheckMarkDrawable(newDrawable);
+                setCompoundDrawablesWithIntrinsicBounds(null, null, null, null);
+            }
         }
     }
 

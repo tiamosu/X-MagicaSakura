@@ -32,7 +32,6 @@ import com.bilibili.magicasakura.utils.TintManager;
  */
 @SuppressWarnings("WeakerAccess")
 public class AppCompatProgressBarHelper extends AppCompatBaseHelper<TintProgressBar> {
-
     private int mProgressTintResId;
     private int mIndeterminateTintResId;
 

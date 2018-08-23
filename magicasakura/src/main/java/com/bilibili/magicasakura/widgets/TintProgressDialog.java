@@ -16,6 +16,7 @@
 
 package com.bilibili.magicasakura.widgets;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -38,8 +39,8 @@ import java.text.NumberFormat;
  * @author xyczero617@gmail.com
  * @time 16/2/4
  */
+@SuppressWarnings("WeakerAccess")
 public class TintProgressDialog extends AlertDialog implements Handler.Callback {
-
 
     /**
      * Creates a ProgressDialog with a circular, spinning progress
@@ -123,6 +124,7 @@ public class TintProgressDialog extends AlertDialog implements Handler.Callback 
         return dialog;
     }
 
+    @SuppressLint("InflateParams")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         LayoutInflater inflater = LayoutInflater.from(getContext());
@@ -134,14 +136,14 @@ public class TintProgressDialog extends AlertDialog implements Handler.Callback 
             mViewUpdateHandler = new Handler(this);
 
             View view = inflater.inflate(R.layout.dialog_alert_progress, null);
-            mProgress = (ProgressBar) view.findViewById(R.id.progress);
-            mProgressNumber = (TextView) view.findViewById(R.id.progress_number);
-            mProgressPercent = (TextView) view.findViewById(R.id.progress_percent);
+            mProgress = view.findViewById(R.id.progress);
+            mProgressNumber = view.findViewById(R.id.progress_number);
+            mProgressPercent = view.findViewById(R.id.progress_percent);
             setView(view);
         } else {
             View view = inflater.inflate(R.layout.dialog_progress, null);
-            mProgress = (ProgressBar) view.findViewById(R.id.progress);
-            mMessageView = (TextView) view.findViewById(R.id.message);
+            mProgress = view.findViewById(R.id.progress);
+            mMessageView = view.findViewById(R.id.message);
             setView(view);
         }
 

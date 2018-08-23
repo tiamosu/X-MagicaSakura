@@ -13,8 +13,12 @@ import com.bilibili.magicasakura.utils.TintManager;
  * @date 2018/1/21.
  */
 @SuppressWarnings("deprecation")
-public class TintScrollView extends ScrollView implements Tintable, AppCompatBackgroundHelper.BackgroundExtensible {
+public class TintScrollView extends ScrollView implements Tintable,
+        AppCompatBackgroundHelper.BackgroundExtensible,
+        AppCompatForegroundHelper.ForegroundExtensible {
+
     private AppCompatBackgroundHelper mBackgroundHelper;
+    private AppCompatForegroundHelper mForegroundHelper;
 
     public TintScrollView(Context context) {
         this(context, null);
@@ -30,8 +34,12 @@ public class TintScrollView extends ScrollView implements Tintable, AppCompatBac
             return;
         }
         final TintManager tintManager = TintManager.get(context);
+
         mBackgroundHelper = new AppCompatBackgroundHelper(this, tintManager);
         mBackgroundHelper.loadFromAttribute(attrs, defStyleAttr);
+
+        mForegroundHelper = new AppCompatForegroundHelper(this, tintManager);
+        mForegroundHelper.loadFromAttribute(attrs, defStyleAttr);
     }
 
     @Override
@@ -42,7 +50,34 @@ public class TintScrollView extends ScrollView implements Tintable, AppCompatBac
         }
     }
 
-    @SuppressWarnings("AliDeprecation")
+    @Override
+    public void setForeground(Drawable foreground) {
+        super.setForeground(foreground);
+        if (mForegroundHelper != null) {
+            mForegroundHelper.setForegroundDrawableExternal(foreground);
+        }
+    }
+
+    public void setForegroundResource(int resId) {
+        if (mForegroundHelper != null) {
+            mForegroundHelper.setForegroundResId(resId);
+        }
+    }
+
+    @Override
+    public void setForegroundTintList(int resId) {
+        if (mForegroundHelper != null) {
+            mForegroundHelper.setForegroundTintList(resId, null);
+        }
+    }
+
+    @Override
+    public void setForegroundTintList(int resId, PorterDuff.Mode mode) {
+        if (mForegroundHelper != null) {
+            mForegroundHelper.setForegroundTintList(resId, mode);
+        }
+    }
+
     @Override
     public void setBackgroundDrawable(Drawable background) {
         super.setBackgroundDrawable(background);
@@ -86,6 +121,9 @@ public class TintScrollView extends ScrollView implements Tintable, AppCompatBac
     public void tint() {
         if (mBackgroundHelper != null) {
             mBackgroundHelper.tint();
+        }
+        if (mForegroundHelper != null) {
+            mForegroundHelper.tint();
         }
     }
 }

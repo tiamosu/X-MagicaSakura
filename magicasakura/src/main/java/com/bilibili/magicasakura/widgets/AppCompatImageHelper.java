@@ -35,7 +35,6 @@ import com.bilibili.magicasakura.utils.TintManager;
  */
 @SuppressWarnings("WeakerAccess")
 public class AppCompatImageHelper extends AppCompatBaseHelper<ImageView> {
-
     private TintInfo mImageTintInfo;
     private int mImageResId;
     private int mImageTintResId;

@@ -253,9 +253,4 @@
     <declare-styleable name="TintCheckedTextView">
         <attr name="drawableLeftTint"/>
     </declare-styleable>
-
-    <declare-styleable name="TintScrollView">
-        <attr name="backgroundTint"/>
-        <attr name="backgroundTintMode"/>
-    </declare-styleable>
 </resources>

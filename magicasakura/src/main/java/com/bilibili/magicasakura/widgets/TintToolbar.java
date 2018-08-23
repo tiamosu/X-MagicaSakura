@@ -30,7 +30,9 @@ import com.bilibili.magicasakura.utils.TintManager;
  * @time 15/10/19
  */
 @SuppressWarnings("deprecation")
-public class TintToolbar extends Toolbar implements Tintable, AppCompatBackgroundHelper.BackgroundExtensible {
+public class TintToolbar extends Toolbar implements Tintable,
+        AppCompatBackgroundHelper.BackgroundExtensible {
+
     private AppCompatBackgroundHelper mBackgroundHelper;
 
     public TintToolbar(Context context) {
@@ -46,8 +48,7 @@ public class TintToolbar extends Toolbar implements Tintable, AppCompatBackgroun
         if (isInEditMode()) {
             return;
         }
-        TintManager mTintManager = TintManager.get(getContext());
-
+        final TintManager mTintManager = TintManager.get(getContext());
         mBackgroundHelper = new AppCompatBackgroundHelper(this, mTintManager);
         mBackgroundHelper.loadFromAttribute(attrs, defStyleAttr);
     }

@@ -33,7 +33,6 @@ import com.bilibili.magicasakura.utils.TintManager;
  */
 @SuppressWarnings("WeakerAccess")
 public class AppCompatTextHelper extends AppCompatBaseHelper<TextView> {
-
     //If writing like this:
     //int[] ATTRS = { R.attr.tintText, android.R.attr.textColor, android.R.attr.textColorLink, ...};
     //we can't get textColor value when api is below 20;

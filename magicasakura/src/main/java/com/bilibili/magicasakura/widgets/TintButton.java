@@ -33,11 +33,12 @@ import com.bilibili.magicasakura.utils.TintManager;
  * @author xyczero617@gmail.com
  * @time 15/10/25
  */
-
 @SuppressWarnings("deprecation")
 @SuppressLint("AppCompatCustomView")
-public class TintButton extends Button implements Tintable, AppCompatBackgroundHelper.BackgroundExtensible,
+public class TintButton extends Button implements Tintable,
+        AppCompatBackgroundHelper.BackgroundExtensible,
         AppCompatTextHelper.TextExtensible {
+
     private AppCompatTextHelper mTextHelper;
     private AppCompatBackgroundHelper mBackgroundHelper;
 

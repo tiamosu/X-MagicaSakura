@@ -38,8 +38,11 @@ import com.bilibili.magicasakura.utils.TintManager;
  */
 @SuppressWarnings("deprecation")
 @SuppressLint("AppCompatCustomView")
-public class TintTextView extends TextView implements Tintable, AppCompatBackgroundHelper.BackgroundExtensible,
-        AppCompatCompoundDrawableHelper.CompoundDrawableExtensible, AppCompatTextHelper.TextExtensible {
+public class TintTextView extends TextView implements Tintable,
+        AppCompatBackgroundHelper.BackgroundExtensible,
+        AppCompatCompoundDrawableHelper.CompoundDrawableExtensible,
+        AppCompatTextHelper.TextExtensible {
+
     private AppCompatTextHelper mTextHelper;
     private AppCompatBackgroundHelper mBackgroundHelper;
     private AppCompatCompoundDrawableHelper mCompoundDrawableHelper;
@@ -57,7 +60,7 @@ public class TintTextView extends TextView implements Tintable, AppCompatBackgro
         if (isInEditMode()) {
             return;
         }
-        TintManager tintManager = TintManager.get(getContext());
+        final TintManager tintManager = TintManager.get(getContext());
 
         mTextHelper = new AppCompatTextHelper(this, tintManager);
         mTextHelper.loadFromAttribute(attrs, defStyleAttr);

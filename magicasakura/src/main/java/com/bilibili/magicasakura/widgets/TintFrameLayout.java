@@ -29,7 +29,8 @@ import com.bilibili.magicasakura.utils.TintManager;
  * @time 16/2/14
  */
 @SuppressWarnings("deprecation")
-public class TintFrameLayout extends FrameLayout implements Tintable, AppCompatBackgroundHelper.BackgroundExtensible,
+public class TintFrameLayout extends FrameLayout implements Tintable,
+        AppCompatBackgroundHelper.BackgroundExtensible,
         AppCompatForegroundHelper.ForegroundExtensible {
 
     private AppCompatBackgroundHelper mBackgroundHelper;
@@ -48,7 +49,7 @@ public class TintFrameLayout extends FrameLayout implements Tintable, AppCompatB
         if (isInEditMode()) {
             return;
         }
-        TintManager tintManager = TintManager.get(context);
+        final TintManager tintManager = TintManager.get(context);
 
         mBackgroundHelper = new AppCompatBackgroundHelper(this, tintManager);
         mBackgroundHelper.loadFromAttribute(attrs, defStyleAttr);

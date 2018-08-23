@@ -24,8 +24,10 @@ import com.bilibili.magicasakura.utils.TintManager;
  * @since 17/5/23
  */
 @SuppressWarnings("deprecation")
-public class TintSwitchCompat extends SwitchCompat implements Tintable, AppCompatTextHelper.TextExtensible,
-        AppCompatBackgroundHelper.BackgroundExtensible, AppCompatSwitchHelper.SwitchCompatExtensible,
+public class TintSwitchCompat extends SwitchCompat implements Tintable,
+        AppCompatTextHelper.TextExtensible,
+        AppCompatBackgroundHelper.BackgroundExtensible,
+        AppCompatSwitchHelper.SwitchCompatExtensible,
         AppCompatCompoundButtonHelper.CompoundButtonExtensible {
 
     private AppCompatBackgroundHelper mBackgroundHelper;
@@ -47,7 +49,7 @@ public class TintSwitchCompat extends SwitchCompat implements Tintable, AppCompa
         if (isInEditMode()) {
             return;
         }
-        TintManager tintManager = TintManager.get(context);
+        final TintManager tintManager = TintManager.get(context);
         mThumbHelper = new AppCompatSwitchHelper(this, tintManager,
                 R.styleable.TintSwitchThumb,
                 new AppCompatSwitchHelper.DrawableCallback() {

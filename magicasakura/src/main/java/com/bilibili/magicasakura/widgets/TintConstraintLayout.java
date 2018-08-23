@@ -13,7 +13,8 @@ import com.bilibili.magicasakura.utils.TintManager;
  * Contacts me:404619986@qq.com
  */
 @SuppressWarnings("deprecation")
-public class TintConstraintLayout extends ConstraintLayout implements Tintable, AppCompatBackgroundHelper.BackgroundExtensible,
+public class TintConstraintLayout extends ConstraintLayout implements Tintable,
+        AppCompatBackgroundHelper.BackgroundExtensible,
         AppCompatForegroundHelper.ForegroundExtensible {
 
     private AppCompatBackgroundHelper mBackgroundHelper;

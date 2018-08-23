@@ -39,8 +39,11 @@ import com.bilibili.magicasakura.utils.TintManager;
  */
 @SuppressWarnings("deprecation")
 @SuppressLint("AppCompatCustomView")
-public class TintRadioButton extends RadioButton implements Tintable, AppCompatBackgroundHelper.BackgroundExtensible
-        , AppCompatCompoundButtonHelper.CompoundButtonExtensible, AppCompatTextHelper.TextExtensible {
+public class TintRadioButton extends RadioButton implements Tintable,
+        AppCompatBackgroundHelper.BackgroundExtensible,
+        AppCompatCompoundButtonHelper.CompoundButtonExtensible,
+        AppCompatTextHelper.TextExtensible {
+
     private AppCompatTextHelper mTextHelper;
     private AppCompatBackgroundHelper mBackgroundHelper;
     private AppCompatCompoundButtonHelper mCompoundButtonHelper;
@@ -58,7 +61,7 @@ public class TintRadioButton extends RadioButton implements Tintable, AppCompatB
         if (isInEditMode()) {
             return;
         }
-        TintManager tintManager = TintManager.get(context);
+        final TintManager tintManager = TintManager.get(context);
 
         mTextHelper = new AppCompatTextHelper(this, tintManager);
         mTextHelper.loadFromAttribute(attrs, defStyleAttr);
@@ -70,18 +73,16 @@ public class TintRadioButton extends RadioButton implements Tintable, AppCompatB
         mCompoundButtonHelper.loadFromAttribute(attrs, defStyleAttr);
     }
 
+    @SuppressLint("NewApi")
     @Override
     protected void drawableStateChanged() {
         super.drawableStateChanged();
         if (ThemeUtils.isSkipAnimatedSelector()) {
-            Drawable drawable = CompoundButtonCompat.getButtonDrawable(this);
-            try {
+            final Drawable drawable = CompoundButtonCompat.getButtonDrawable(this);
+            if (drawable != null) {
                 if (ThemeUtils.getWrapperDrawable(drawable) instanceof AnimatedStateListDrawable) {
-                    assert drawable != null;
                     drawable.jumpToCurrentState();
                 }
-            } catch (NoClassDefFoundError error) {
-                error.printStackTrace();
             }
         }
     }
