@@ -84,18 +84,9 @@ public class TintCheckBox extends AppCompatCheckBox implements Tintable,
         }
     }
 
-    @TargetApi(Build.VERSION_CODES.M)
     @Override
     public void setTextAppearance(int resId) {
         super.setTextAppearance(resId);
-        if (mTextHelper != null) {
-            mTextHelper.setTextAppearanceForTextColor(resId);
-        }
-    }
-
-    @Override
-    public void setTextAppearance(Context context, int resId) {
-        super.setTextAppearance(context, resId);
         if (mTextHelper != null) {
             mTextHelper.setTextAppearanceForTextColor(resId);
         }

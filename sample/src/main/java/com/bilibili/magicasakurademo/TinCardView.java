@@ -37,7 +37,7 @@ public class TinCardView extends CardView implements Tintable,
         if (isInEditMode()) {
             return;
         }
-        TintManager tintManager = TintManager.get(context);
+        final TintManager tintManager = TintManager.get(context);
 
         mBackgroundHelper = new AppCompatBackgroundHelper(this, tintManager);
         mBackgroundHelper.loadFromAttribute(attrs, defStyleAttr);
@@ -83,8 +83,8 @@ public class TinCardView extends CardView implements Tintable,
     }
 
     @Override
-    public void setBackgroundDrawable(Drawable background) {
-        super.setBackgroundDrawable(background);
+    public void setBackground(Drawable background) {
+        super.setBackground(background);
         if (mBackgroundHelper != null) {
             mBackgroundHelper.setBackgroundDrawableExternal(background);
         }

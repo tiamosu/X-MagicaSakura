@@ -1,13 +1,11 @@
 package com.bilibili.magicasakura.widgets;
 
 import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.AnimatedStateListDrawable;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.Nullable;
@@ -220,18 +218,9 @@ public class TintSwitchCompat extends SwitchCompat implements Tintable,
         }
     }
 
-    @TargetApi(Build.VERSION_CODES.M)
     @Override
     public void setTextAppearance(int resId) {
         super.setTextAppearance(resId);
-        if (mTextHelper != null) {
-            mTextHelper.setTextAppearanceForTextColor(resId);
-        }
-    }
-
-    @Override
-    public void setTextAppearance(Context context, int resId) {
-        super.setTextAppearance(context, resId);
         if (mTextHelper != null) {
             mTextHelper.setTextAppearanceForTextColor(resId);
         }
