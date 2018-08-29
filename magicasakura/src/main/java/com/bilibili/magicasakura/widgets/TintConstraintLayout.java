@@ -12,7 +12,6 @@ import com.bilibili.magicasakura.utils.TintManager;
  * Created by feifan on 2017/4/11.
  * Contacts me:404619986@qq.com
  */
-@SuppressWarnings("deprecation")
 public class TintConstraintLayout extends ConstraintLayout implements Tintable,
         AppCompatBackgroundHelper.BackgroundExtensible,
         AppCompatForegroundHelper.ForegroundExtensible {
@@ -33,7 +32,7 @@ public class TintConstraintLayout extends ConstraintLayout implements Tintable,
         if (isInEditMode()) {
             return;
         }
-        TintManager tintManager = TintManager.get(context);
+        final TintManager tintManager = TintManager.get(context);
 
         mBackgroundHelper = new AppCompatBackgroundHelper(this, tintManager);
         mBackgroundHelper.loadFromAttribute(attrs, defStyleAttr);
@@ -79,8 +78,8 @@ public class TintConstraintLayout extends ConstraintLayout implements Tintable,
     }
 
     @Override
-    public void setBackgroundDrawable(Drawable background) {
-        super.setBackgroundDrawable(background);
+    public void setBackground(Drawable background) {
+        super.setBackground(background);
         if (mBackgroundHelper != null) {
             mBackgroundHelper.setBackgroundDrawableExternal(background);
         }

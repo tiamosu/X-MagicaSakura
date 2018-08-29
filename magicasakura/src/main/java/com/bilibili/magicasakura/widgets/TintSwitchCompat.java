@@ -23,7 +23,6 @@ import com.bilibili.magicasakura.utils.TintManager;
  * @author xyczero617@gmail.com
  * @since 17/5/23
  */
-@SuppressWarnings("deprecation")
 public class TintSwitchCompat extends SwitchCompat implements Tintable,
         AppCompatTextHelper.TextExtensible,
         AppCompatBackgroundHelper.BackgroundExtensible,
@@ -239,8 +238,8 @@ public class TintSwitchCompat extends SwitchCompat implements Tintable,
     }
 
     @Override
-    public void setBackgroundDrawable(Drawable background) {
-        super.setBackgroundDrawable(background);
+    public void setBackground(Drawable background) {
+        super.setBackground(background);
         if (mBackgroundHelper != null) {
             mBackgroundHelper.setBackgroundDrawableExternal(background);
         }

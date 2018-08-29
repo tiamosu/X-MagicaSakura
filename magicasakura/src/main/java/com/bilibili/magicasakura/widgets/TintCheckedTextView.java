@@ -1,19 +1,3 @@
-/*
- * Copyright (C) 2016 Bilibili
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *         http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.bilibili.magicasakura.widgets;
 
 import android.annotation.SuppressLint;
@@ -25,8 +9,8 @@ import android.os.Build;
 import android.support.annotation.DrawableRes;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
+import android.support.v7.widget.AppCompatCheckedTextView;
 import android.util.AttributeSet;
-import android.widget.CheckedTextView;
 
 import com.bilibili.magicasakura.R;
 import com.bilibili.magicasakura.utils.TintManager;
@@ -38,9 +22,8 @@ import com.bilibili.magicasakura.utils.TintManager;
  * special view for replacing view in preference , not recommend to use it in common
  * layout: select_dialog_singlechoice_xxx
  */
-@SuppressWarnings("ResourceType")
-@SuppressLint("AppCompatCustomView")
-public class TintCheckedTextView extends CheckedTextView implements Tintable {
+public class TintCheckedTextView extends AppCompatCheckedTextView implements Tintable {
+
     private static final int[] ATTRS = {
             android.R.attr.drawableLeft,
             R.attr.drawableLeftTint
@@ -54,6 +37,7 @@ public class TintCheckedTextView extends CheckedTextView implements Tintable {
         this(context, attrs, R.attr.checkedTextViewStyle);
     }
 
+    @SuppressLint("ResourceType")
     public TintCheckedTextView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         TypedArray array = context.obtainStyledAttributes(attrs, ATTRS);
@@ -86,17 +70,14 @@ public class TintCheckedTextView extends CheckedTextView implements Tintable {
     @Override
     public void setCheckMarkDrawable(Drawable d) {
         super.setCheckMarkDrawable(d);
-        //FIXME:recommend not to use it
     }
 
     @Override
     public void setCheckMarkDrawable(int resId) {
         super.setCheckMarkDrawable(resId);
-        //FIXME:recommend not to use it
     }
 
     @Override
     public void tint() {
-
     }
 }

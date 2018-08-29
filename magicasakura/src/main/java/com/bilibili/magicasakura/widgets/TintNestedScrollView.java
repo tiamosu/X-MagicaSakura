@@ -80,8 +80,8 @@ public class TintNestedScrollView extends NestedScrollView implements Tintable,
     }
 
     @Override
-    public void setBackgroundDrawable(Drawable background) {
-        super.setBackgroundDrawable(background);
+    public void setBackground(Drawable background) {
+        super.setBackground(background);
         if (mBackgroundHelper != null) {
             mBackgroundHelper.setBackgroundDrawableExternal(background);
         }

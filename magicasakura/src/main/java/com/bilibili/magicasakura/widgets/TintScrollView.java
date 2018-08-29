@@ -12,7 +12,6 @@ import com.bilibili.magicasakura.utils.TintManager;
  * @author xia
  * @date 2018/1/21.
  */
-@SuppressWarnings("deprecation")
 public class TintScrollView extends ScrollView implements Tintable,
         AppCompatBackgroundHelper.BackgroundExtensible,
         AppCompatForegroundHelper.ForegroundExtensible {
@@ -79,8 +78,8 @@ public class TintScrollView extends ScrollView implements Tintable,
     }
 
     @Override
-    public void setBackgroundDrawable(Drawable background) {
-        super.setBackgroundDrawable(background);
+    public void setBackground(Drawable background) {
+        super.setBackground(background);
         if (mBackgroundHelper != null) {
             mBackgroundHelper.setBackgroundDrawableExternal(background);
         }
