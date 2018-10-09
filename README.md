@@ -38,10 +38,10 @@ compile 'me.xia:x-magicasakura:1.0.4'
 ## Maven Dependency
 ```
 <dependency>
-  <groupId>com.bilibili</groupId>
-  <artifactId>magicasakura</artifactId>
-  <version>0.1.8</version>
-  <type>aar</type>
+  <groupId>me.xia</groupId>
+  <artifactId>x-magicasakura</artifactId>
+  <version>1.0.4</version>
+  <type>pom</type>
 </dependency>
 ```
 
