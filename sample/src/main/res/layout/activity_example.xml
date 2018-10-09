@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/theme_color_primary"
+    android:background="@android:color/white"
     android:orientation="vertical"
     tools:ignore="all">
 
@@ -31,6 +31,24 @@
                 android:textColor="@color/white"
                 android:textSize="22sp"/>
         </com.bilibili.magicasakura.widgets.TintToolbar>
+
+        <com.bilibili.magicasakurademo.test.ShadowConstraintLayout
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/theme_color_primary"
+            app:l_bottomDividerColor="@color/blue"
+            app:l_bottomDividerHeight="5dp"
+            app:l_bottomDividerInsetLeft="5dp"
+            app:l_bottomDividerInsetRight="10dp"
+            app:l_radius="20dp"
+            app:l_shadowAlpha="1"
+            app:l_shadowElevation="20dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <com.bilibili.magicasakurademo.TinCardView
             android:layout_width="150dp"

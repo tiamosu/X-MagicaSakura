@@ -5,9 +5,12 @@ buildscript {
         maven { url 'https://dl.bintray.com/weixia/maven' }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.4'
-        classpath 'com.novoda:bintray-release:0.8.1'
-        classpath 'com.xia:x-plugin:1.0.9'
+        classpath 'com.android.tools.build:gradle:3.2.0'
+        classpath 'com.xia:x-plugin:1.1.0'
+        //Gradle Android Maven plugin
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
+        //Gradle Bintray Plugin
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4'
     }
 }
 

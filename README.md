@@ -1,9 +1,7 @@
 ![cover](https://raw.githubusercontent.com/xyczero/MagicaSakura/master/screenshot/magicasakura_cover.png)
 
 ## MagicaSakura
-[ ![Download](https://api.bintray.com/packages/xyczero/maven/MagicaSakura/images/download.svg?version=0.1.8) ](https://bintray.com/xyczero/maven/MagicaSakura/0.1.8/link)
-[![](https://jitpack.io/v/wexia/MagicaSakura.svg)](https://jitpack.io/#wexia/MagicaSakura)
-
+[ ![Download](https://api.bintray.com/packages/weixia/maven/x-magicasakura/images/download.svg) ](https://bintray.com/weixia/maven/x-magicasakura/_latestVersion)
 
 MagicaSakura is an Android multi theme library which supporting both daily colorful theme and night theme.
 
@@ -34,9 +32,7 @@ MagicaSakura is an Android multi theme library which supporting both daily color
 
 ## Gradle Dependency
 ```
-compile 'com.bilibili:magicasakura:0.1.8@aar
-compile 'com.github.wexia:MagicaSakura:1.0.1'
-
+compile 'me.xia:x-magicasakura:1.0.4'
 ```
 
 ## Maven Dependency
