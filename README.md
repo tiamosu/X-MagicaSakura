@@ -32,7 +32,7 @@ MagicaSakura is an Android multi theme library which supporting both daily color
 
 ## Gradle Dependency
 ```
-compile 'me.xia:x-magicasakura:1.0.4'
+compile 'me.xia:x-magicasakura:1.0.5'
 ```
 
 ## Maven Dependency
@@ -40,7 +40,7 @@ compile 'me.xia:x-magicasakura:1.0.4'
 <dependency>
   <groupId>me.xia</groupId>
   <artifactId>x-magicasakura</artifactId>
-  <version>1.0.4</version>
+  <version>1.0.5</version>
   <type>pom</type>
 </dependency>
 ```
