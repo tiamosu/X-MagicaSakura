@@ -2,29 +2,18 @@ buildscript {
     repositories {
         jcenter()
         google()
-        maven { url 'https://dl.bintray.com/weixia/maven' }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.2.0'
-        classpath 'com.xia:x-plugin:1.1.0'
-        //Gradle Android Maven plugin
         classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
-        //Gradle Bintray Plugin
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4'
     }
 }
 
 allprojects {
-    apply plugin: 'com.xia.global.plugin'
     repositories {
         jcenter()
         google()
-    }
-
-    gradle.projectsEvaluated {
-        tasks.withType(JavaCompile) {
-            options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
-        }
     }
 }
 
@@ -33,6 +22,9 @@ task clean(type: Delete) {
 }
 
 ext {
+    compile_sdk_version = 28
+    min_sdk_version = 15
+    target_sdk_version = 28
     version_code = 1
-    version_name = '1.0.0'
+    version_name = '1.0'
 }
