@@ -11,7 +11,6 @@ import android.os.Build;
 import android.support.annotation.ColorInt;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
-import android.support.v7.widget.AppCompatEditText;
 import android.text.TextUtils;
 import android.text.method.PasswordTransformationMethod;
 import android.util.AttributeSet;
@@ -19,14 +18,14 @@ import android.view.MotionEvent;
 import android.widget.EditText;
 
 import com.bilibili.magicasakura.utils.ThemeUtils;
-import com.bilibili.magicasakura.widgets.Tintable;
+import com.bilibili.magicasakura.widgets.TintEditText;
 import com.bilibili.magicasakurademo.R;
 
 /**
  * @author weixia
  * @date 2018/12/6.
  */
-public class CustomTintEditText extends AppCompatEditText implements Tintable {
+public class CustomTintEditText extends TintEditText {
     private static final int TYPE_NORMAL = 0;
     private static final int TYPE_CAN_CLEAR = 1;
     private static final int TYPE_CAN_WATCH_PWD = 2;
@@ -346,6 +345,7 @@ public class CustomTintEditText extends AppCompatEditText implements Tintable {
 
     @Override
     public void tint() {
+        super.tint();
         initView();
     }
 
