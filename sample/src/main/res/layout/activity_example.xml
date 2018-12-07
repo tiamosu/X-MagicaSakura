@@ -36,8 +36,8 @@
             android:layout_width="150dp"
             android:layout_height="200dp"
             android:layout_gravity="center"
-            android:layout_marginBottom="20dp"
             android:layout_marginTop="15dp"
+            android:layout_marginBottom="20dp"
             android:background="@color/theme_color_primary"
             app:l_bottomDividerColor="@color/blue"
             app:l_bottomDividerHeight="5dp"
@@ -54,8 +54,8 @@
             android:layout_width="150dp"
             android:layout_height="200dp"
             android:layout_gravity="center"
-            android:layout_marginBottom="20dp"
             android:layout_marginTop="15dp"
+            android:layout_marginBottom="20dp"
             android:background="@color/theme_color_primary"
             app:cardCornerRadius="10dp"
             app:cardElevation="10dp"/>
@@ -64,9 +64,34 @@
             android:layout_width="150dp"
             android:layout_height="200dp"
             android:layout_gravity="center"
-            android:layout_marginBottom="20dp"
             android:layout_marginTop="15dp"
+            android:layout_marginBottom="20dp"
             app:cardCornerRadius="10dp"
             app:cardElevation="10dp"/>
+
+        <com.bilibili.magicasakurademo.widgets.CustomTintEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <com.bilibili.magicasakurademo.widgets.CustomTintEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:drawableLeft="@drawable/ic_looks_1"
+            android:drawableRight="@drawable/ic_looks_2"
+            android:drawablePadding="5dp"
+            android:hint="自定义EditText"
+            android:text="123456123456123456123456123456"
+            app:tet_borderColor="@color/theme_color_primary"
+            app:tet_borderCornerRadius="5dp"
+            app:tet_borderFocusColor="@color/theme_color_primary_trans"
+            app:tet_funcType="canClear"
+            app:tet_iconHeight="30dp"
+            app:tet_iconWidth="25dp"
+            app:tet_isBorderView="true"
+            app:tet_leftIconTint="@color/theme_color_primary"
+            app:tet_pwdHideIcon="@drawable/ic_looks_3"
+            app:tet_pwdShowIcon="@drawable/ic_looks_2"
+            app:tet_rightIconTint="@color/theme_color_primary"/>
     </android.support.v7.widget.LinearLayoutCompat>
 </com.bilibili.magicasakura.widgets.TintScrollView>
