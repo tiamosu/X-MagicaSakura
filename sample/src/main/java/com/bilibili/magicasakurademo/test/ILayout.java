@@ -1,10 +1,10 @@
 package com.bilibili.magicasakurademo.test;
 
-import android.support.annotation.ColorInt;
-import android.support.annotation.IntDef;
-
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+
+import androidx.annotation.ColorInt;
+import androidx.annotation.IntDef;
 
 /**
  * @author limuyang
@@ -29,17 +29,11 @@ public interface ILayout {
 
     /**
      * limit the width of a layout
-     *
-     * @param widthLimit
-     * @return
      */
     boolean setWidthLimit(int widthLimit);
 
     /**
      * limit the height of a layout
-     *
-     * @param heightLimit
-     * @return
      */
     boolean setHeightLimit(int heightLimit);
 
@@ -50,66 +44,43 @@ public interface ILayout {
 
     /**
      * determine if the outline contain the padding area, usually false
-     *
-     * @param outlineExcludePadding
      */
     void setOutlineExcludePadding(boolean outlineExcludePadding);
 
     /**
      * See {@link android.view.View#setElevation(float)}
-     *
-     * @param elevation
      */
     void setShadowElevation(int elevation);
 
-    /**
-     * @return
-     */
     int getShadowElevation();
 
     /**
      * set the outline alpha, which will change the shadow
-     *
-     * @param shadowAlpha
      */
     void setShadowAlpha(float shadowAlpha);
 
     /**
      * get the outline alpha we set
-     *
-     * @return
      */
     float getShadowAlpha();
 
     /**
      * set the layout radius
-     *
-     * @param radius
      */
     void setRadius(int radius);
 
     /**
      * set the layout radius with one or none side been hidden
-     *
-     * @param radius
-     * @param hideRadiusSide
      */
     void setRadius(int radius, @LayoutHelper.HideRadiusSide int hideRadiusSide);
 
     /**
      * get the layout radius
-     *
-     * @return
      */
     int getRadius();
 
     /**
      * inset the outline if needed
-     *
-     * @param left
-     * @param top
-     * @param right
-     * @param bottom
      */
     void setOutlineInset(int left, int top, int right, int bottom);
 
@@ -117,8 +88,6 @@ public interface ILayout {
      * the shadow elevation only work after L, so we provide a downgrading compatible solutions for android 4.x
      * usually we use border, but the border may be redundant for android L+. so will not show border default,
      * if your designer like the border exists with shadow, you can call setShowBorderOnlyBeforeL(false)
-     *
-     * @param showBorderOnlyBeforeL
      */
     void setShowBorderOnlyBeforeL(boolean showBorderOnlyBeforeL);
 
@@ -126,128 +95,71 @@ public interface ILayout {
      * in some case, we maybe hope the layout only have radius in one side.
      * but there is no convenient way to write the code like canvas.drawPath,
      * so we take another way that hide one radius side
-     *
-     * @param hideRadiusSide
      */
     void setHideRadiusSide(@HideRadiusSide int hideRadiusSide);
 
     /**
      * get the side that we have hidden the radius
-     *
-     * @return
      */
     int getHideRadiusSide();
 
     /**
      * this method will determine the radius and shadow.
-     *
-     * @param radius
-     * @param shadowElevation
-     * @param shadowAlpha
      */
     void setRadiusAndShadow(int radius, int shadowElevation, float shadowAlpha);
 
     /**
      * this method will determine the radius and shadow with one or none side be hidden
-     *
-     * @param radius
-     * @param hideRadiusSide
-     * @param shadowElevation
-     * @param shadowAlpha
      */
     void setRadiusAndShadow(int radius, @HideRadiusSide int hideRadiusSide, int shadowElevation, float shadowAlpha);
 
     /**
      * border color, if you don not set it, the layout will not draw the border
-     *
-     * @param borderColor
      */
     void setBorderColor(@ColorInt int borderColor);
 
     /**
      * border width, default is 1px, usually no need to set
-     *
-     * @param borderWidth
      */
     void setBorderWidth(int borderWidth);
 
     /**
      * config the top divider
-     *
-     * @param topInsetLeft
-     * @param topInsetRight
-     * @param topDividerHeight
-     * @param topDividerColor
      */
     void updateTopDivider(int topInsetLeft, int topInsetRight, int topDividerHeight, int topDividerColor);
 
     /**
      * config the bottom divider
-     *
-     * @param bottomInsetLeft
-     * @param bottomInsetRight
-     * @param bottomDividerHeight
-     * @param bottomDividerColor
      */
     void updateBottomDivider(int bottomInsetLeft, int bottomInsetRight, int bottomDividerHeight, int bottomDividerColor);
 
     /**
      * config the left divider
-     *
-     * @param leftInsetTop
-     * @param leftInsetBottom
-     * @param leftDividerWidth
-     * @param leftDividerColor
      */
     void updateLeftDivider(int leftInsetTop, int leftInsetBottom, int leftDividerWidth, int leftDividerColor);
 
     /**
      * config the right divider
-     *
-     * @param rightInsetTop
-     * @param rightInsetBottom
-     * @param rightDividerWidth
-     * @param rightDividerColor
      */
     void updateRightDivider(int rightInsetTop, int rightInsetBottom, int rightDividerWidth, int rightDividerColor);
 
     /**
      * show top divider, and hide others
-     *
-     * @param topInsetLeft
-     * @param topInsetRight
-     * @param topDividerHeight
-     * @param topDividerColor
      */
     void onlyShowTopDivider(int topInsetLeft, int topInsetRight, int topDividerHeight, int topDividerColor);
 
     /**
      * show bottom divider, and hide others
-     *
-     * @param bottomInsetLeft
-     * @param bottomInsetRight
-     * @param bottomDividerHeight
-     * @param bottomDividerColor
      */
     void onlyShowBottomDivider(int bottomInsetLeft, int bottomInsetRight, int bottomDividerHeight, int bottomDividerColor);
 
     /**
      * show left divider, and hide others
-     *
-     * @param leftInsetTop
-     * @param leftInsetBottom
-     * @param leftDividerWidth
-     * @param leftDividerColor
      */
     void onlyShowLeftDivider(int leftInsetTop, int leftInsetBottom, int leftDividerWidth, int leftDividerColor);
 
     /**
      * show right divider, and hide others
-     *
-     * @param rightInsetTop
-     * @param rightInsetBottom
-     * @param rightDividerWidth
-     * @param rightDividerColor
      */
     void onlyShowRightDivider(int rightInsetTop, int rightInsetBottom, int rightDividerWidth, int rightDividerColor);
 

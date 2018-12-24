@@ -4,10 +4,6 @@ import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.NonNull;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.graphics.drawable.DrawableCompat;
-import android.support.v7.widget.SwitchCompat;
 import android.util.AttributeSet;
 
 import com.bilibili.magicasakura.utils.DrawableUtils;
@@ -15,11 +11,15 @@ import com.bilibili.magicasakura.utils.ThemeUtils;
 import com.bilibili.magicasakura.utils.TintInfo;
 import com.bilibili.magicasakura.utils.TintManager;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.widget.SwitchCompat;
+import androidx.core.content.ContextCompat;
+import androidx.core.graphics.drawable.DrawableCompat;
+
 /**
  * @author xyczero617@gmail.com
  * @since 17/5/23
  */
-
 @SuppressWarnings("WeakerAccess")
 public class AppCompatSwitchHelper {
     private int[] sAttrs;

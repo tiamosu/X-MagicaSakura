@@ -3,10 +3,11 @@ package com.bilibili.magicasakura.widgets;
 import android.content.Context;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
-import android.support.constraint.ConstraintLayout;
 import android.util.AttributeSet;
 
 import com.bilibili.magicasakura.utils.TintManager;
+
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 /**
  * Created by feifan on 2017/4/11.

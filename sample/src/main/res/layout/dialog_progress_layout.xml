@@ -1,28 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-  ~ Copyright (C) 2016 Bilibili
-  ~
-  ~  Licensed under the Apache License, Version 2.0 (the "License");
-  ~  you may not use this file except in compliance with the License.
-  ~  You may obtain a copy of the License at
-  ~
-  ~        http://www.apache.org/licenses/LICENSE-2.0
-  ~
-  ~  Unless required by applicable law or agreed to in writing, software
-  ~  distributed under the License is distributed on an "AS IS" BASIS,
-  ~  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  ~  See the License for the specific language governing permissions and
-  ~  limitations under the License.
-  ~
-  -->
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:ignore="all">
 
-    <android.support.v7.widget.DialogTitle
+    <androidx.appcompat.widget.DialogTitle
         android:id="@+id/title"
         style="?android:attr/windowTitleStyle"
         android:layout_width="match_parent"
@@ -30,25 +16,25 @@
         android:layout_gravity="start"
         android:ellipsize="end"
         android:paddingLeft="?attr/dialogPreferredPadding"
-        android:paddingRight="?attr/dialogPreferredPadding"
         android:paddingTop="@dimen/abc_dialog_padding_top_material"
+        android:paddingRight="?attr/dialogPreferredPadding"
         android:singleLine="true"
         android:text="ProgressBar"
         android:textAlignment="viewStart"
-        android:textSize="@dimen/textsize_large" />
+        android:textSize="@dimen/textsize_large"/>
 
-    <LinearLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginBottom="@dimen/abc_dialog_padding_top_material"
         android:layout_marginLeft="?attr/dialogPreferredPadding"
-        android:layout_marginRight="?attr/dialogPreferredPadding"
         android:layout_marginTop="8dp"
+        android:layout_marginRight="?attr/dialogPreferredPadding"
+        android:layout_marginBottom="@dimen/abc_dialog_padding_top_material"
         android:layout_weight="1"
         android:minHeight="48dp"
         android:orientation="vertical">
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:orientation="horizontal">
@@ -60,7 +46,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:text="Horizontal"
-                app:compoundButtonTint="@color/selector_compound" />
+                app:compoundButtonTint="@color/selector_compound"/>
 
             <com.bilibili.magicasakura.widgets.TintProgressBar
                 style="@style/Widget.AppCompat.ProgressBar.Horizontal"
@@ -69,10 +55,10 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="@dimen/padding"
                 android:indeterminate="true"
-                app:progressIndeterminateTint="@color/theme_color_primary" />
-        </LinearLayout>
+                app:progressIndeterminateTint="@color/theme_color_primary"/>
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="40dp">
 
@@ -83,24 +69,24 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:text="Circle"
-                app:compoundButtonTint="@color/selector_compound" />
+                app:compoundButtonTint="@color/selector_compound"/>
 
-            <android.support.v4.widget.Space
+            <Space
                 android:layout_width="0dp"
                 android:layout_height="1dp"
-                android:layout_weight="1" />
+                android:layout_weight="1"/>
 
             <com.bilibili.magicasakura.widgets.TintProgressBar
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/padding"
                 android:indeterminate="true"
-                app:progressIndeterminateTint="@color/theme_color_primary" />
+                app:progressIndeterminateTint="@color/theme_color_primary"/>
 
-            <android.support.v4.widget.Space
+            <Space
                 android:layout_width="0dp"
                 android:layout_height="1dp"
-                android:layout_weight="1" />
-        </LinearLayout>
-    </LinearLayout>
-</LinearLayout>
+                android:layout_weight="1"/>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.appcompat.widget.LinearLayoutCompat>

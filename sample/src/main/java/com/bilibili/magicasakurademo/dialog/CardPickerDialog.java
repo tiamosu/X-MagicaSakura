@@ -1,24 +1,6 @@
-/*
- * Copyright (C) 2016 Bilibili
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *         http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.bilibili.magicasakurademo.dialog;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,15 +10,19 @@ import android.widget.ImageView;
 import com.bilibili.magicasakurademo.R;
 import com.bilibili.magicasakurademo.utils.ThemeHelper;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.DialogFragment;
+
 /**
  * @author xyczero
  * @time 16/5/29
  */
 public class CardPickerDialog extends DialogFragment implements View.OnClickListener {
     public static final String TAG = "CardPickerDialog";
-    ImageView[] mCards = new ImageView[8];
-    Button mConfirm;
-    Button mCancel;
+    private ImageView[] mCards = new ImageView[8];
+    private Button mConfirm;
+    private Button mCancel;
 
     private int mCurrentTheme;
     private ClickListener mClickListener;
@@ -50,23 +36,23 @@ public class CardPickerDialog extends DialogFragment implements View.OnClickList
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.dialog_theme_picker, container, false);
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mCancel = (Button) view.findViewById(android.R.id.button2);
-        mConfirm = (Button) view.findViewById(android.R.id.button1);
-        mCards[0] = (ImageView) view.findViewById(R.id.theme_pink);
-        mCards[1] = (ImageView) view.findViewById(R.id.theme_purple);
-        mCards[2] = (ImageView) view.findViewById(R.id.theme_blue);
-        mCards[3] = (ImageView) view.findViewById(R.id.theme_green);
-        mCards[4] = (ImageView) view.findViewById(R.id.theme_green_light);
-        mCards[5] = (ImageView) view.findViewById(R.id.theme_yellow);
-        mCards[6] = (ImageView) view.findViewById(R.id.theme_orange);
-        mCards[7] = (ImageView) view.findViewById(R.id.theme_red);
+        mCancel = view.findViewById(android.R.id.button2);
+        mConfirm = view.findViewById(android.R.id.button1);
+        mCards[0] = view.findViewById(R.id.theme_pink);
+        mCards[1] = view.findViewById(R.id.theme_purple);
+        mCards[2] = view.findViewById(R.id.theme_blue);
+        mCards[3] = view.findViewById(R.id.theme_green);
+        mCards[4] = view.findViewById(R.id.theme_green_light);
+        mCards[5] = view.findViewById(R.id.theme_yellow);
+        mCards[6] = view.findViewById(R.id.theme_orange);
+        mCards[7] = view.findViewById(R.id.theme_red);
         setImageButtons(mCurrentTheme);
         for (ImageView card : mCards) {
             card.setOnClickListener(this);

@@ -7,14 +7,15 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.AnimatedStateListDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.support.annotation.ColorRes;
-import android.support.annotation.DrawableRes;
-import android.support.v4.widget.CompoundButtonCompat;
-import android.support.v7.widget.AppCompatRadioButton;
 import android.util.AttributeSet;
 
 import com.bilibili.magicasakura.utils.ThemeUtils;
 import com.bilibili.magicasakura.utils.TintManager;
+
+import androidx.annotation.ColorRes;
+import androidx.annotation.DrawableRes;
+import androidx.appcompat.widget.AppCompatRadioButton;
+import androidx.core.widget.CompoundButtonCompat;
 
 /**
  * @author xyczero617@gmail.com

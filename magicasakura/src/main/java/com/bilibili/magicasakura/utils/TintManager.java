@@ -22,12 +22,6 @@ import android.graphics.PorterDuffColorFilter;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.support.annotation.ColorRes;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.util.LruCache;
-import android.support.v7.view.ContextThemeWrapper;
 import android.util.Log;
 import android.util.SparseArray;
 import android.view.View;
@@ -37,6 +31,13 @@ import com.bilibili.magicasakura.drawables.FilterableStateListDrawable;
 import java.lang.ref.WeakReference;
 import java.util.Map;
 import java.util.WeakHashMap;
+
+import androidx.annotation.ColorRes;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.view.ContextThemeWrapper;
+import androidx.collection.LruCache;
 
 @SuppressWarnings({"WeakerAccess", "unused"})
 public class TintManager {

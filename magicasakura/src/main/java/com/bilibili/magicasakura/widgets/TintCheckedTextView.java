@@ -6,14 +6,15 @@ import android.content.res.TypedArray;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.support.annotation.DrawableRes;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.graphics.drawable.DrawableCompat;
-import android.support.v7.widget.AppCompatCheckedTextView;
 import android.util.AttributeSet;
 
 import com.bilibili.magicasakura.R;
 import com.bilibili.magicasakura.utils.TintManager;
+
+import androidx.annotation.DrawableRes;
+import androidx.appcompat.widget.AppCompatCheckedTextView;
+import androidx.core.content.ContextCompat;
+import androidx.core.graphics.drawable.DrawableCompat;
 
 /**
  * @author xyczero617@gmail.com

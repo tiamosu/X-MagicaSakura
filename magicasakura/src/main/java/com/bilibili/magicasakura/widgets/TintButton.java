@@ -6,11 +6,12 @@ import android.content.res.ColorStateList;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.support.annotation.ColorRes;
-import android.support.v7.widget.AppCompatButton;
 import android.util.AttributeSet;
 
 import com.bilibili.magicasakura.utils.TintManager;
+
+import androidx.annotation.ColorRes;
+import androidx.appcompat.widget.AppCompatButton;
 
 /**
  * @author xyczero617@gmail.com

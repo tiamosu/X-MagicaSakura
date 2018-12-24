@@ -3,11 +3,12 @@ package com.bilibili.magicasakura.widgets;
 import android.content.Context;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
-import android.support.v7.widget.Toolbar;
 import android.util.AttributeSet;
 
 import com.bilibili.magicasakura.R;
 import com.bilibili.magicasakura.utils.TintManager;
+
+import androidx.appcompat.widget.Toolbar;
 
 /**
  * @author xyczero617@gmail.com

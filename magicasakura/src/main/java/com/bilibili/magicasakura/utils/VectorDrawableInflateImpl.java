@@ -1,22 +1,18 @@
-/*
- * Copyright (c) 2015-2017 BiliBili Inc.
- */
-
 package com.bilibili.magicasakura.utils;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
-import android.support.graphics.drawable.VectorDrawableCompat;
-import android.support.v4.graphics.drawable.DrawableCompat;
 import android.util.AttributeSet;
-import android.util.Log;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
+
+import androidx.core.graphics.drawable.DrawableCompat;
+import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat;
 
 import static com.bilibili.magicasakura.utils.DrawableUtils.obtainAttributes;
 
@@ -25,6 +21,7 @@ import static com.bilibili.magicasakura.utils.DrawableUtils.obtainAttributes;
  * @email jungly.ik@gmail.com
  * @since 2017/05/26
  */
+@SuppressWarnings("WeakerAccess")
 public class VectorDrawableInflateImpl implements DrawableInflateDelegate {
 
     private int resId;

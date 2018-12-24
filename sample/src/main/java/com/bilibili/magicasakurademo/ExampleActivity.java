@@ -4,9 +4,6 @@ import android.app.Activity;
 import android.app.ActivityManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,6 +11,10 @@ import android.view.View;
 import com.bilibili.magicasakura.utils.ThemeUtils;
 import com.bilibili.magicasakurademo.dialog.CardPickerDialog;
 import com.bilibili.magicasakurademo.utils.ThemeHelper;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 /**
  * @author xia
