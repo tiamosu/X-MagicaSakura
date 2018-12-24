@@ -13,7 +13,6 @@ import java.io.IOException;
  * @author xyczero617@gmail.com
  * @time 16/11/6
  */
-
 interface DrawableInflateDelegate {
     Drawable inflateDrawable(Context context, XmlPullParser parser, AttributeSet attrs) throws IOException, XmlPullParserException;
 }

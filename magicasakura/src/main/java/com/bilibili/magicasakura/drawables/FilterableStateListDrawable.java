@@ -1,19 +1,3 @@
-/*
- * Copyright (C) 2016 Bilibili
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *         http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.bilibili.magicasakura.drawables;
 
 import android.graphics.ColorFilter;
@@ -27,7 +11,6 @@ import android.util.SparseArray;
  * {@link #addState(int[], Drawable, ColorFilter)} for that purpose.
  */
 public class FilterableStateListDrawable extends StateListDrawable {
-
     private int currIdx = -1;
     private int childrenCount = 0;
     private SparseArray<ColorFilter> filterMap;
@@ -64,16 +47,10 @@ public class FilterableStateListDrawable extends StateListDrawable {
 
     @Override
     public boolean selectDrawable(int idx) {
-
         boolean result = super.selectDrawable(idx);
         // check if the drawable has been actually changed to the one I expect
-        if (getCurrent() != null) {
-            currIdx = result ? idx : currIdx;
-            setColorFilter(getColorFilterForIdx(currIdx));
-        } else {
-            currIdx = -1;
-            setColorFilter(null);
-        }
+        currIdx = result ? idx : currIdx;
+        setColorFilter(getColorFilterForIdx(currIdx));
         return result;
     }
 

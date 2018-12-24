@@ -248,7 +248,9 @@ public class ThemeUtils {
     public static boolean isSkipAnimatedSelector() {
         if (!hasRecordedVersion) {
             final String sdkVersion = Build.VERSION.RELEASE;
-            isSkipAnimatedSelector = !Build.UNKNOWN.equals(sdkVersion) && "5.0".compareTo(sdkVersion) <= 0 && "5.1".compareTo(sdkVersion) > 0;
+            isSkipAnimatedSelector = !Build.UNKNOWN.equals(sdkVersion)
+                    && "5.0".compareTo(sdkVersion) <= 0
+                    && "5.1".compareTo(sdkVersion) > 0;
             hasRecordedVersion = true;
         }
         return isSkipAnimatedSelector;
@@ -261,7 +263,8 @@ public class ThemeUtils {
                 || drawable instanceof LayerDrawable) {
             return true;
         } else if (drawable instanceof StateListDrawable) {
-            final DrawableContainer.DrawableContainerState containerState = ((DrawableContainer.DrawableContainerState) drawable.getConstantState());
+            final DrawableContainer.DrawableContainerState containerState =
+                    ((DrawableContainer.DrawableContainerState) drawable.getConstantState());
             //can't get containState from drawable which is containing DrawableWrapperDonut
             //https://code.google.com/p/android/issues/detail?id=169920
             if (containerState == null) {
@@ -500,7 +503,7 @@ public class ThemeUtils {
                         sRecycler.setAccessible(true);
                     }
                     if (sRecycleViewClearMethod == null) {
-                        sRecycleViewClearMethod = Class.forName("android.support.v7.widget.RecyclerView$Recycler")
+                        sRecycleViewClearMethod = Class.forName("androidx.recyclerview.widget.RecyclerView$Recycler")
                                 .getDeclaredMethod("clear");
                         sRecycleViewClearMethod.setAccessible(true);
                     }
