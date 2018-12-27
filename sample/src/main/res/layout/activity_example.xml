@@ -93,5 +93,12 @@
             app:tet_pwdHideIcon="@drawable/ic_looks_3"
             app:tet_pwdShowIcon="@drawable/ic_looks_2"
             app:tet_rightIconTint="@color/theme_color_primary"/>
+
+        <com.bilibili.magicasakura.widgets.TintTextView
+            android:id="@+id/example_tv"
+            android:layout_width="150dp"
+            android:layout_height="45dp"
+            android:layout_margin="5dp"
+            tools:background="@color/theme_color_primary_trans"/>
     </androidx.appcompat.widget.LinearLayoutCompat>
 </com.bilibili.magicasakura.widgets.TintScrollView>

@@ -25,4 +25,6 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation project(':magicasakura')
     implementation 'androidx.cardview:cardview:1.0.0'
+
+    implementation 'me.xia:x-drawabletoolbox:1.0.0'
 }
