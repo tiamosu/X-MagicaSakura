@@ -2,7 +2,6 @@ package com.bilibili.magicasakurademo;
 
 import android.app.Activity;
 import android.app.ActivityManager;
-import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
@@ -10,15 +9,12 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.bilibili.magicasakura.utils.ThemeUtils;
-import com.bilibili.magicasakura.widgets.TintTextView;
 import com.bilibili.magicasakurademo.dialog.CardPickerDialog;
 import com.bilibili.magicasakurademo.utils.ThemeHelper;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.ContextCompat;
-import top.defaults.drawabletoolbox.DrawableBuilder;
 
 /**
  * @author xia
@@ -35,12 +31,6 @@ public class ExampleActivity extends AppCompatActivity implements CardPickerDial
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(null);
-
-        final TintTextView textView = findViewById(R.id.example_tv);
-        final Drawable drawable = new DrawableBuilder()
-                .solidColor(ContextCompat.getColor(this, R.color.blue))
-                .build();
-        textView.setBackground(drawable);
     }
 
     @Override
