@@ -5,9 +5,6 @@ import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.content.res.XmlResourceParser;
 import android.graphics.Color;
-
-import androidx.core.graphics.ColorUtils;
-
 import android.util.AttributeSet;
 import android.util.StateSet;
 import android.util.TypedValue;
@@ -18,6 +15,8 @@ import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
 import java.util.LinkedList;
+
+import androidx.core.graphics.ColorUtils;
 
 /**
  * @author xyczero617@gmail.com

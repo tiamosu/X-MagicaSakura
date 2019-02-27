@@ -62,5 +62,4 @@ public class FilterableStateListDrawable extends StateListDrawable {
     public ConstantState getConstantState() {
         return super.getConstantState();
     }
-
 }
